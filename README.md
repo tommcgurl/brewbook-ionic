@@ -9,3 +9,23 @@ This verision of the app is implemented with
 - [Firebase](https://www.firebase.com/) as the a backend with [AngularFire](https://www.firebase.com/docs/web/libraries/angular/). 
 - [ng-Cordova](http://ngcordova.com/) for any hardware interactions such as the camera.
 
+
+####The App
+The App containts the basic CRUD functionality with regards to beers. The user should be able to
+
+- Log a beer into the app, which includes
+    + A picture (either by taking a photo or picking one from your photo gallery)
+    + A description
+    + A Rating
+    + A Name
+    + The Brewery that makes the beer
+    + The Style (IPA, stout, saison, pilsner ...)
+    + Other brew related information like ([IBU](http://beer.about.com/od/glossary/g/ibudefined.htm) and [ABV](http://en.wikipedia.org/wiki/Alcohol_by_volume))
+- View a list of your logged beers
+    + Sorted by brewery
+    + Sorted alphabetically (all brews view)
+-  Edit a beer entry
+-  Remove a beer entry
+
+__*More may be added to this list later on__
+
