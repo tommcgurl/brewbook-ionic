@@ -29,3 +29,21 @@ The App containts the basic CRUD functionality with regards to beers. The user s
 
 __*More may be added to this list later on__
 
+####Firebase Setup
+1. Since we will be using [Firebase](https://www.firebase.com/) as a backend for this application. We will need to [sign up for a free Hacker Plan](https://www.firebase.com/signup/)
+![sign up](./READMEImages/fbsignup.png?raw=true )
+
+2. Next you should create a new app. Name wit whatever you like
+![create app](./READMEImages/createapp.png?raw=true)
+
+3. Select "Manage App" from your dashboard
+
+4. Select "Import Data" in the top right corner.
+![import data](./READMEImages/importdata.png?raw=true )
+
+5. Import the __brews.json__ included in this repo
+
+You will now have a working firebase! The data should look something like this...
+![data](./READMEImages/data.png?raw=true )
+
+
