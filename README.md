@@ -137,7 +137,7 @@ This will install all of node dependencies used by gulp.
     ```
     You should see your files now injected into index.html
     
-        ![injected files](./READMEImages/injected.png?raw=true )
+    ![injected files](./READMEImages/injected.png?raw=true )
 
 B.2 Add the _index_ task to gulp's watch task and ionic's serve task
 
