@@ -17,14 +17,14 @@
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
-
-    <!-- your app's js -->
+    <!-- inject:js -->
     <script src="app.js"></script>
-    <script src="layout/chatsTab/chats.controller.js"></script>
-    <script src="layout/dashTab/dash.controller.js"></script>
+    <script src="services/chatService.js"></script>
     <script src="layout/accountTab/account.controller.js"></script>
     <script src="layout/chatDetail/chatDetail.controller.js"></script>
-    <script src="services/chatService.js"></script>
+    <script src="layout/chatsTab/chats.controller.js"></script>
+    <script src="layout/dashTab/dash.controller.js"></script>
+    <!-- endinject -->
   </head>
   <body ng-app="starter">
     <!--
@@ -40,5 +40,6 @@
       have templates inline in this html file if you'd like).
     -->
     <ion-nav-view></ion-nav-view>
+
   </body>
 </html>

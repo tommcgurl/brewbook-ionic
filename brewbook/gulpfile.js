@@ -6,12 +6,20 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var inject = require('gulp-inject');
 
 var paths = {
   sass: ['./scss/**/*.scss']
 };
 
 gulp.task('default', ['sass']);
+
+// Added task for injecting js dependencies into index.html
+gulp.task('index', function(){
+return gulp.src('./www/index.html')
+    .pipe(inject(gulp.src(['./www/**/*.js', '!./www/lib/**/*.js'], {read: false}), {relative: true}))
+    .pipe(gulp.dest('./www'));
+})
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')

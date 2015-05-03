@@ -43,8 +43,12 @@ __*More may be added to this list later on__
 
 5. Import the __brews.json__ included in this repo.
 
-You will now have a working firebase! The data should look something like this...
-![data](./READMEImages/data.png?raw=true )
+    You will now have a working firebase! The data should look something like this...
+    ![data](./READMEImages/data.png?raw=true )
+
+6. Make sure everything was properly imported by visiting 
+https://<your app name here>.firebaseio.com/brews.json
+    - You should see a json object with keys representing a brewery name where each breweries value is an array of objects reprenting a beer.
 
 ####Setup Ionic and Generate Starter Template
 
@@ -92,5 +96,42 @@ Here we will move all of the generated components and services to their own file
     - Wrapped all of the controllers and services in an [IIFE](https://github.com/johnpapa/angular-styleguide#iife)
     - The new folder structure looks like this
         ![lab](./READMEImages/folderStructure1.png?raw=true )
+
+####Gulp Inject
+Next up I'm going to be adding the awesome [Gulp Inject](https://www.npmjs.com/package/gulp-inject) by [Joakim Carlstein](https://twitter.com/joakimbeng) to the project. 
+
+Gulp Inject will automatically inject the javascript files we add to the project so that we don't have to remember to add it to change our index.html everytime we add a file to the project.
+
+[Björn Holdt](https://twitter.com/bholdt) has some great [instructions](http://bjornholdt.me/gulp-inject-and-ionic/) on adding Gulp-inject so that it works with the 
+```
+ionic serve
+```
+command. I Followed with some minor adjustments. See the below steps and their corresponding commits.
+
+__NOTE:__ I had to upgrade my node and npm version to get gulp to work. I did it using npm with the following commands
+```
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
+
+```
+
+B.1 Install Gulp-inject. Add the _index_ task to our gulp file. 
+
+- First run 
+```
+npm install
+```
+This will install all of node dependencies used by gulp.
+
+- We will be injecting all the js files in the _www_ folder except the js files in _www/lib_ since they are already bundled with ionic.
+    + you can test that the task works by running 
+    ```
+    gulp index
+    ```
+    You should see your files now injected into index.html
+    ![injected files](./READMEImages/injected.png?raw=true )
+
+
 
 
