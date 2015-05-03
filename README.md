@@ -145,6 +145,13 @@ B.2 Add the _index_ task to gulp's watch task and ionic's serve task
 - Next we add that path to the watch task
 - Lastly, add the _gulpStartupTasks_ propery to _ionic.project_
 
+####SASS
+The last part of our setup before beginning will be to configure ionic to use [SASS](http://sass-lang.com/)
+
+Ionic makes it super easy to use their SASS stylesheets instead of the default css.
+
+C.1 Follow the instructions in index.html to use ionic's SASS generated css sheet.
+
 
 
 
