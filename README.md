@@ -66,3 +66,31 @@ You will now have a working firebase! The data should look something like this..
     ![lab](./READMEImages/ioniclab.png?raw=true )
 
 Alright! Now we can start modifying this and building out Brewbook!
+
+####Style Guide Changes
+While the code that Ionic generates is an awesome starting point, I like to follow a style guide for Angular. This helps keep the code clean and more readable for others.
+
+For this app I will be following [John Papa's](https://github.com/johnpapa) [ Angular Style Guide](https://github.com/johnpapa/angular-styleguide).
+
+We will also be strucutring our project a by component instead of by file type.
+
+For example, the brewsTab component will be in a folder like this
+    ```
+    BrewsTab 
+       |__ brews.controller.js
+       |__ brews.template.js
+    ```
+
+Feel free to skip these commits since they are just changing around the generated code to follow the style guide best practices.
+
+- A.1: Single Responsibility (rule of 1)
+Here we will move all of the generated components and services to their own files. We will keep all the routes in app.js though since it's nice to have them all in one place.
+    - Created a _layout_ folder where each of our different views and their controllers will go.
+    - Split up all the controllers and put them in their corresponding _layout_ folder
+    - Moved the _Chats_ service to a _services_ folder and renamed it to _ChatService_
+    - Removed the postfix 'Ctrl' from all of the controllers since they are now indicated with a _.conroller.js_ file extention and they are alreaady with their corresponding view
+    - Wrapped all of the controllers and services in an [IIFE](https://github.com/johnpapa/angular-styleguide#iife)
+    - The new folder structure looks like this
+        ![lab](./READMEImages/folderStructure1.png?raw=true )
+
+
