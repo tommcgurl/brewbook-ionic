@@ -139,6 +139,12 @@ This will install all of node dependencies used by gulp.
     
         ![injected files](./READMEImages/injected.png?raw=true )
 
+B.2 Add the _index_ task to gulp's watch task and ionic's serve task
+
+- First we add a reference to the files we will be watching
+- Next we add that path to the watch task
+- Lastly, add the _gulpStartupTasks_ propery to _ionic.project_
+
 
 
 
