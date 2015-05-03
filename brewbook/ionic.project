@@ -1,5 +1,5 @@
 {
   "name": "brewbook",
   "app_id": "",
-  "gulpStartupTasks": ["index", "watch"]
+  "gulpStartupTasks": ["sass","index", "watch"]
 }

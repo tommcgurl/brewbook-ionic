@@ -92,16 +92,17 @@ For example, the brewsTab component will be in a folder like this
 
 Feel free to skip these commits since they are just changing around the generated code to follow the style guide best practices.
 
-- A.1: Single Responsibility (rule of 1)
+__A.1__: Single Responsibility (rule of 1)
 Here we will move all of the generated components and services to their own files. We will keep all the routes in app.js though since it's nice to have them all in one place.
-    - Created a _layout_ folder where each of our different views and their controllers will go.
-    - Split up all the controllers and put them in their corresponding _layout_ folder
-    - Moved the _Chats_ service to a _services_ folder and renamed it to _ChatService_
-    - Removed the postfix 'Ctrl' from all of the controllers since they are now indicated with a _.conroller.js_ file extention and they are alreaady with their corresponding view
-    - Wrapped all of the controllers and services in an [IIFE](https://github.com/johnpapa/angular-styleguide#iife)
-    - The new folder structure looks like this
 
-        ![folder structure](./READMEImages/folderStructure1.png?raw=true )
+* Created a _layout_ folder where each of our different views and their controllers will go.
+* Split up all the controllers and put them in their corresponding _layout_ folder
+* Moved the _Chats_ service to a _services_ folder and renamed it to _ChatService_
+* Removed the postfix 'Ctrl' from all of the controllers since they are now indicated with a _.conroller.js_ file extention and they are alreaady with their corresponding view
+* Wrapped all of the controllers and services in an [IIFE](https://github.com/johnpapa/angular-styleguide#iife)
+* The new folder structure looks like this
+
+    ![folder structure](./READMEImages/folderStructure1.png?raw=true )
 
 ####Gulp Inject
 Next up I'm going to be adding the awesome [Gulp Inject](https://www.npmjs.com/package/gulp-inject) by [Joakim Carlstein](https://twitter.com/joakimbeng) to the project. 
@@ -122,7 +123,7 @@ sudo n stable
 
 ```
 
-B.1 Install Gulp-inject. Add the _index_ task to our gulp file. 
+__B.1__ Install Gulp-inject. Add the _index_ task to our gulp file. 
 
 - First run 
 ```
@@ -150,7 +151,9 @@ The last part of our setup before beginning will be to configure ionic to use [S
 
 Ionic makes it super easy to use their SASS stylesheets instead of the default css.
 
-C.1 Follow the instructions in index.html to use ionic's SASS generated css sheet.
+__C.1__ Follow the instructions in index.html to use ionic's SASS generated css sheet.
+
+__C.2__ Change the _ionic.project_ file's _gulpStartupTasks_ property to include the _sass task_
 
 
 
