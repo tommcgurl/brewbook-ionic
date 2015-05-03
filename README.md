@@ -31,20 +31,24 @@ __*More may be added to this list later on__
 
 ####Firebase Setup
 1. Since we will be using [Firebase](https://www.firebase.com/) as a backend for this application. We will need to [sign up for a free Hacker Plan](https://www.firebase.com/signup/)
-![sign up](./READMEImages/fbsignup.png?raw=true )
+
+    ![sign up](./READMEImages/fbsignup.png?raw=true )
 
 2. Next you should create a new app. Name it whatever you like.
-![create app](./READMEImages/createapp.png?raw=true)
+
+    ![create app](./READMEImages/createapp.png?raw=true)
 
 3. Select "Manage App" from your dashboard.
 
 4. Select "Import Data" in the top right corner.
-![import data](./READMEImages/importdata.png?raw=true )
+
+    ![import data](./READMEImages/importdata.png?raw=true )
 
 5. Import the __brews.json__ included in this repo.
 
     You will now have a working firebase! The data should look something like this...
-    ![data](./READMEImages/data.png?raw=true )
+    
+        ![data](./READMEImages/data.png?raw=true )
 
 6. Make sure everything was properly imported by visiting 
 https://<your app name here>.firebaseio.com/brews.json
@@ -67,7 +71,8 @@ https://<your app name here>.firebaseio.com/brews.json
     ```
 
     You should see the following. Click around and explore.
-    ![lab](./READMEImages/ioniclab.png?raw=true )
+    
+    ![folder structure](./READMEImages/lab.png?raw=true )
 
 Alright! Now we can start modifying this and building out Brewbook!
 
@@ -95,7 +100,8 @@ Here we will move all of the generated components and services to their own file
     - Removed the postfix 'Ctrl' from all of the controllers since they are now indicated with a _.conroller.js_ file extention and they are alreaady with their corresponding view
     - Wrapped all of the controllers and services in an [IIFE](https://github.com/johnpapa/angular-styleguide#iife)
     - The new folder structure looks like this
-        ![lab](./READMEImages/folderStructure1.png?raw=true )
+
+        ![folder structure](./READMEImages/folderStructure1.png?raw=true )
 
 ####Gulp Inject
 Next up I'm going to be adding the awesome [Gulp Inject](https://www.npmjs.com/package/gulp-inject) by [Joakim Carlstein](https://twitter.com/joakimbeng) to the project. 
@@ -130,7 +136,8 @@ This will install all of node dependencies used by gulp.
     gulp index
     ```
     You should see your files now injected into index.html
-    ![injected files](./READMEImages/injected.png?raw=true )
+    
+        ![injected files](./READMEImages/injected.png?raw=true )
 
 
 
