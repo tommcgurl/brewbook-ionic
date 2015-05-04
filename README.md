@@ -155,6 +155,16 @@ __C.1__ Follow the instructions in index.html to use ionic's SASS generated css 
 
 __C.2__ Change the _ionic.project_ file's _gulpStartupTasks_ property to include the _sass task_
 
+Finally! Our setup is done. Now let's get to the beer!
+
+####BrewService
+Okay we are going to add a service to handle fetching our brews from firebase
+1. Add the firebase and angularfire dependencies
+    
+* We will want to actually download these files rather than use the CDN
+    - This is because we want the app to load even if we are offline since all the front-end dependencies are contained in the _www_ folder, then so should these files. We can add them to the lib folder.
+    - Since the lib folder is ignored by the Gulp _index_ task, we must manually add them to index.html
+
 
 
 
