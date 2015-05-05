@@ -158,12 +158,32 @@ __C.2__ Change the _ionic.project_ file's _gulpStartupTasks_ property to include
 Finally! Our setup is done. Now let's get to the beer!
 
 ####BrewService
-Okay we are going to add a service to handle fetching our brews from firebase
+Okay we are going to add a service to handle fetching our brews from firebase. See the below steps and their corresponding commits.
+
 1. Add the firebase and angularfire dependencies
     
-* We will want to actually download these files rather than use the CDN
-    - This is because we want the app to load even if we are offline since all the front-end dependencies are contained in the _www_ folder, then so should these files. We can add them to the lib folder.
-    - Since the lib folder is ignored by the Gulp _index_ task, we must manually add them to index.html
+    + We will want to actually download these files rather than use the CDN
+        * This is because we want the app to load even if we are offline since all the front-end dependencies are contained in the _www_ folder, then so should these files. We can add them to the lib folder.
+        * Since the lib folder is ignored by the Gulp _index_ task, we must manually add them to index.html
+
+2. Now we can create our BrewService factory to pull the data from our Firebase.
+
+    + First we will inject two modules, $firebaseObject, and $q
+        * [$firbaseObject](https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebaseobject) is a service used for pulling our brews from Firebase 
+        * [$q](https://docs.angularjs.org/api/ng/service/$q) is the promise libary for angular based off of [Kris Kowal](https://twitter.com/kriskowal)'s popular [q library](https://github.com/kriskowal/q).
+            - [Dave Smith](https://twitter.com/djsmith42)'s video [The Power of $q](https://www.youtube.com/watch?v=33kl0iQByME) is a greate explanation of the $q library and it's usefullness.
+    + Next we will create our service object.
+        * For now it will only have one function _getAll_.
+        * The value for _getAll_ will be a private function *_getBrews*
+    + *_getBrews* will use our firebase url to make a reference, and the an actual request using $firebaseObject.
+    + The firebase object has a property called _$loaded_ which returns a promise. 
+        * We will first store this in our singleton factory, then return it to the caller.
+        * By storing the promise in our factory, we can return it later to anyone else who makes a request.
+        * Once the promise is resolved, it stays resolved. So, if another request comes into the service, we simply return the promise.
+            - If the promise is still not resolved, all the callers will be notified as soon as it resolves
+            - If it has resolved, then the caller will instantly get the data back from the promise (meaning their .then or .done function will instantly be called)
+        * This makes it super convienient!
+        
 
 
 
