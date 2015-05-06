@@ -210,8 +210,9 @@ Create a tab for viewing all brews
     - The template should contain an _ion-view_, and an _ion-content_ element.
     - Inside the _ion-content_ we will render an _ion-list_ of _ion-items_
     - In each ion-item we will put the details of the brew
+    - An [_ion-spinner_](http://ionicframework.com/docs/api/directive/ionSpinner/) element will be added so that we can display a spinner while the data is being fetched.
 
-4. Now we have to modify the _tabs.template.html_ and _app.js_
+3. Now we have to modify the _tabs.template.html_ and _app.js_
     - We can change the tab-dash to tab-brews
         + Since we no longer need that generated tab we can remove the _layout/dashTab_ folder
     - We can change the icon for the brews tab to the _pint_ icon provided by ionicons!

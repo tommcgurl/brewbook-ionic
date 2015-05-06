@@ -48,6 +48,16 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
       }
     })
 
+    .state('tab.brews', {
+      url: '/brews',
+      views: {
+        'tab-brews': {
+          templateUrl: 'layout/allBrews/allBrews.template.html',
+          controller: 'Brews as vm'
+        }
+      }
+    })
+
     .state('tab.chats', {
         url: '/chats',
         views: {
@@ -78,7 +88,7 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
     });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tab/dash');
+    $urlRouterProvider.otherwise('/tab/brews');
   });
 // Set the controller module
 angular.module('starter.controllers', []);
