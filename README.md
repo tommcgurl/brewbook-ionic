@@ -183,6 +183,48 @@ Okay we are going to add a service to handle fetching our brews from firebase. S
             - If the promise is still not resolved, all the callers will be notified as soon as it resolves
             - If it has resolved, then the caller will instantly get the data back from the promise (meaning their .then or .done function will instantly be called)
         * This makes it super convienient!
+
+####Brews Tab
+Create a tab for viewing all brews
+    - Now that our service is set up, we can create a view for our brews. This view will show a thumbnail image, the brew's name, and the name of the brewery that makes it.
+    - Since this list may get rather long we will take advantage of ionic's [collection-repeat directive](http://blog.ionic.io/collection-repeat-iteration-two/)
+
+1. collection-repeat only takes an array as input. Since the brews object returned from firebase is an object that is hashed on the brewery names, we will need to create an array of all the brews to pass to the collection-repeat directive.
+    - First we create a *_getAllBrews*  utility function.
+        + This function takes in the brews object as it's parameter
+        + It uses the $firebaseObjects _forEach_ function to look over the objects values, which in this case are the brewery keys
+        + We then store this array in our factory in case we need to pull it again
+    - Next, we create a function *getBrewList* that will first call *_getBrews* to request the data, then pass that data to our new *_getAllBrews* function
+        + This new function will return a promise that it will resolve once we have the array of brews
+        + We will use the $q library for this
+    - We then expose this new function on the factory for consumers to call
+
+2. Now we can create a controller for our new view
+    - First we'll add an _allBrews_ folder to our _layout_ folder that will hold our _allBrews.controller.js_ and _allBrews.template.html_
+    - The controller should have the array of brews on it's scope
+    - We will be using the [_controllerAs_](https://github.com/johnpapa/angular-styleguide#controlleras-with-vm) syntax
+    - So we will create a property, vm.brews
+    - We will inject our newly created _BrewService_
+    - In our activate function we will call BrewService.getBrewList and set vm.brews to the response.
+
+3. The Template will use the [collection-repeat directive](http://blog.ionic.io/collection-repeat-iteration-two/) mentioned above to create a list item for every brew
+    - The template should contain an _ion-view_, and an _ion-content_ element.
+    - Inside the _ion-content_ we will render an _ion-list_ of _ion-items_
+    - In each ion-item we will put the details of the brew
+
+4. Now we have to modify the _tabs.template.html_ and _app.js_
+    - We can change the tab-dash to tab-brews
+        + Since we no longer need that generated tab we can remove the _layout/dashTab_ folder
+    - We can change the icon for the brews tab to the _pint_ icon provided by ionicons!
+    - Next we have to add the route for our new view to app.js
+        + We will put this view at the '/brews' route
+        + We must also specify that we are using the controllerAs syntax in the route's _controller_ property
+        ```
+        controller: 'Brews as vm'
+        ```
+         
+
+    
         
 
 
