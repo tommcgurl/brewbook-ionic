@@ -199,15 +199,14 @@ Create a tab for viewing all brews
         + We will use the $q library for this
     - We then expose this new function on the factory for consumers to call
 
-2. Now we can create a controller for our new view
+2. Now we can create a controller and template for our new view
     - First we'll add an _allBrews_ folder to our _layout_ folder that will hold our _allBrews.controller.js_ and _allBrews.template.html_
     - The controller should have the array of brews on it's scope
     - We will be using the [_controllerAs_](https://github.com/johnpapa/angular-styleguide#controlleras-with-vm) syntax
     - So we will create a property, vm.brews
     - We will inject our newly created _BrewService_
     - In our activate function we will call BrewService.getBrewList and set vm.brews to the response.
-
-3. The Template will use the [collection-repeat directive](http://blog.ionic.io/collection-repeat-iteration-two/) mentioned above to create a list item for every brew
+    - The Template will use the [collection-repeat directive](http://blog.ionic.io/collection-repeat-iteration-two/) mentioned above to create a list item for every brew
     - The template should contain an _ion-view_, and an _ion-content_ element.
     - Inside the _ion-content_ we will render an _ion-list_ of _ion-items_
     - In each ion-item we will put the details of the brew
