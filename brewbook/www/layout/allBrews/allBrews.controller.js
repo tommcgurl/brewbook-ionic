@@ -3,9 +3,9 @@
   angular.module('starter.controllers')
     .controller('Brews', Brews);
 
-  Brews.$inject = ['BrewService'];
+  Brews.$inject = ['$scope', 'BrewService'];
 
-  function Brews(BrewService) {
+  function Brews($scope, BrewService) {
 
     var vm = this;
     vm.brews;
@@ -15,6 +15,7 @@
     function activate() {
       BrewService.getBrewList()
         .then(function(data) {
+          console.log(data);
           vm.brews = data;
         });
     }

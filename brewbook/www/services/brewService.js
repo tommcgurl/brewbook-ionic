@@ -8,13 +8,11 @@
   function BrewService($q, $firebaseObject) {
     var _url = 'https://brewbook-react.firebaseio.com/brews',
       _promise,
-      _allBrews,
-      _allBreweries;
+      _allBrews;
 
     // The services 'public' definition
     var brewService = {
-      getBrewList: getBrewList,
-      getBreweryList: getBreweryList
+      getBrewList: getBrewList
     };
 
     return brewService;
@@ -24,30 +22,15 @@
      * then returns it as an array of individual brew objects
      */
     function getBrewList() {
-      // Prepare a promise for the caller
-      var deffered = $q.defer();
+        // Prepare a promise for the caller
+        var deffered = $q.defer();
 
-      _getBrews().then(function(brewObject) {
-        deffered.resolve(_getAllBrews(brewObject));
-      });
+        _getBrews().then(function(brewObject) {
+            deffered.resolve(_getAllBrews(brewObject));
+        });
 
-      // return promise to caller
-      return deffered.promise;
-    }
-
-    /**
-     * Fetches a list of formatted brewery names
-     */
-    function getBreweryList() {
-      // Prepare a promise for the caller
-      var deffered = $q.defer();
-
-      _getBrews().then(function(brewObject) {
-        deffered.resolve(_getAllBreweries(brewObject));
-      });
-
-      // return promise to caller
-      return deffered.promise;
+        // return promise to caller
+        return deffered.promise;
     }
 
     /**
@@ -63,13 +46,11 @@
         res = $firebaseObject(ref);
 
       // Return a promise
-      _promise = res.$loaded()
-        .then(function(data) {
-          return data;
-        });
+      _promise = res.$loaded().then(function(data) {
+        return data;
+      });
       return _promise;
     }
-
     /**
      * Utility function for creating an array of brews
      * from our brew object
@@ -87,20 +68,6 @@
       })
 
       return _allBrews = allBrews;
-    }
-
-    function _getAllBreweries(brewObject) {
-
-      if (_allBreweries) {
-        return _allBreweries;
-      }
-
-      var allBreweries = [];
-      brewObject.forEach(function(brewery) {
-        allBreweries.push(brewery[0].brewery);
-      });
-
-      return _allBreweries = allBreweries;
     }
   }
 })();
