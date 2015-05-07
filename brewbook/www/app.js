@@ -38,22 +38,22 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
 
     // Each tab has its own nav history stack:
 
-    .state('tab.dash', {
-      url: '/dash',
-      views: {
-        'tab-dash': {
-          templateUrl: 'layout/dashTab/dash.template.html',
-          controller: 'Dash'
-        }
-      }
-    })
-
     .state('tab.brews', {
       url: '/brews',
       views: {
         'tab-brews': {
           templateUrl: 'layout/allBrews/allBrews.template.html',
           controller: 'Brews as vm'
+        }
+      }
+    })
+
+    .state('tab.breweries', {
+      url: '/breweries',
+      views: {
+        'tab-breweries': {
+          templateUrl: 'layout/breweries/breweries.template.html',
+          controller: 'Breweries as vm'
         }
       }
     })

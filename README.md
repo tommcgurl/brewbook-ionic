@@ -29,6 +29,16 @@ The App containts the basic CRUD functionality with regards to beers. The user s
 
 __*More may be added to this list later on__
 
+####The Data
+- The data for this app is an object where each key is the name of a brewery.
+    
+    ![breweries](./READMEImages/breweries.png?raw=true )
+
+- The value for each key is an array of individual _brew_ objects.
+
+    ![brews](./READMEImages/brews.png?raw=true )
+
+
 ####Firebase Setup
 1. Since we will be using [Firebase](https://www.firebase.com/) as a backend for this application. We will need to [sign up for a free Hacker Plan](https://www.firebase.com/signup/)
 
@@ -222,9 +232,21 @@ Create a tab for viewing all brews
         ```
         controller: 'Brews as vm'
         ```
-         
 
-    
+Great! We now have a list of brews displayed!
+
+####Breweries Tab
+Create a tab for viewing all the breweries
+- Now we will create another tab for viewing all the breweries
+    + For now we will just show the names, but we can change that later.
+
+1. Add a function to our _BrewService_ to return the list of breweries.
+    - The data is already hashed on the brewery.
+    - We already have a function that get's this object.
+    - We will add a function to our service that grabs the formatted Brewery Name. 
+        + In this case, each brew object contains that formated name so we can use that.
+    - We will expose this function on our factory as _getBreweryList_
+
         
 
 
