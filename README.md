@@ -257,6 +257,10 @@ Create a tab for viewing all the breweries
         + Will loop over the brewery list using the collection-repeate directive
         + Each ionic item simply shows the brewery name for now
 
+3. Create a new route and tab for the _breweries_ view
+    - Add a route for our new view in app.js
+    - Change the tabs to point to the new view and change the brewery tabs icon.
+
         
 
 
