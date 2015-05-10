@@ -295,6 +295,13 @@ Since we already made a view of brews in our [brews tab](#brews-tab) section, th
         + It's always best practice to use an element or an attribnute for your custom directives. 
         + In this case an element makes sense
     - The template will just be the ion-list from the allBrews.template.html with some slight modifications since we won't be using the Brews controller.
+
+2. Use the BrewList directive to display brews
+    - First we will replace the ion-list in the allBrews template.
+    - Then we will create a similar template for our breweries brew list.
+        + We will change the title to be the current brewery of the beers we are viewing in the list.
+        + This file is titled brewsByBrewery.template.html
+
     
  
         
