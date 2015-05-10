@@ -2,7 +2,10 @@
   <ion-spinner class="col" ng-hide="vm.breweries"></ion-spinner>
   <ion-content>
     <ion-list ng-if="vm.breweries">
-      <ion-item class="item-remove-animate item-icon-right" collection-repeat="brewery in vm.breweries" type="item-text-wrap" >
+      <ion-item
+        class="item-remove-animate item-icon-right"
+        collection-repeat="brewery in vm.breweries"
+        type="item-text-wrap">
         <h2>{{brewery}}</h2>
       </ion-item>
     </ion-list>

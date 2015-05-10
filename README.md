@@ -261,6 +261,42 @@ Create a tab for viewing all the breweries
     - Add a route for our new view in app.js
     - Change the tabs to point to the new view and change the brewery tabs icon.
 
+####Brews By Brewery
+Create a view of all the beers made by a particular brewery when you click it.
+
+Now that we have the breweries view, we can filter the individual brews by the brewery they belong to. So when you click a particular brewery in the list you will be taken to the list of that breweries beer. 
+
+Since we already made a view of brews in our [brews tab](#brews-tab) section, this would be the perfect time to move that view into a re-usable directive!
+
+1. Move the brews list to a custom directive.
+    - We can start by making a directives folder
+        + Inside we will make a brewList.js and brewList.html
+    - We will call the directive *bbBrewList* as in _Brew Book Brew List_ .
+        + It's a good idea to namespace custom directives. 
+        + All of the built in directives are namespaced with _ng_. Creating our own namespace helps to prevent nameing collisions and tells anyone who's looking at the code that the directive is custom.
+    - Directives are automatically converted from camelCase to dash seperated words, sometimes called _spine-case_ or _train-case_.
+        + Whatever it's called, it looks like this
+        ```
+        bbBrewList -----> bb-brew-list
+        ```
+    - We also have to pass our directive the brews that it will be showing.
+        + We will pass the brews using the directive's _isolate scope_
+        ```javascript
+        var directive = {
+          scope: {   // Isolate scope
+            brews: '='
+          },
+          templateUrl: '/directives/brewList/brewList.html',
+          restrict: 'E'
+        };
+        ```
+        + The _'='_ allows us to pass in a bound object, in this case our brews array.
+    - The _restrict: 'E'_ indicates that this directive will be an actual element
+        + It's always best practice to use an element or an attribnute for your custom directives. 
+        + In this case an element makes sense
+    - The template will just be the ion-list from the allBrews.template.html with some slight modifications since we won't be using the Brews controller.
+    
+ 
         
 
 

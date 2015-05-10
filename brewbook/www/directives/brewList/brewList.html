@@ -1,0 +1,8 @@
+<ion-list ng-if="brews">
+  <ion-item class="item-remove-animate item-avatar item-icon-right" collection-repeat="brew in brews" type="item-text-wrap">
+    <img ng-src="{{brew.image}}">
+    <h2>{{brew.name}}</h2>
+    <p>{{brew.brewery}}</p>
+    <i class="icon ion-chevron-right icon-accessory"></i>
+  </ion-item>
+</ion-list>
