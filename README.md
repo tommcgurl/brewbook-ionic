@@ -302,6 +302,19 @@ Since we already made a view of brews in our [brews tab](#brews-tab) section, th
         + We will change the title to be the current brewery of the beers we are viewing in the list.
         + This file is titled brewsByBrewery.template.html
 
+3. Add a route to the brewsByBrewery layout
+    - The name of the brewery we select will be appended to the route
+        + For example:
+        ```
+        #/tab/breweries/sixpoint
+        ```
+    - To acheive this we simple add an href to each ion-item in the breweries list.
+        + this href will pass the brewery name
+        + we will use the  brewery name from our brew object property keys so that our url a bit clearer
+        + to get the key from the full brewery name we use a filter
+    - We can create our own Angular filter that will remove the whitespace and convert the full brewery name to a brewery key for our brews object.
+    - Now that each list item invokes a brewery specific route, we need to add that route to our app.js.
+
     
  
         

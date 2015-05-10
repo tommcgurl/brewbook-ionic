@@ -58,6 +58,16 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
       }
     })
 
+    .state('tab.brews-by-brewery', {
+      url: '/breweries/:brewery',
+      views: {
+        'tab-breweries': {
+          templateUrl: 'layout/brewsByBrewery/brewsByBrewery.template.html',
+          controller: 'BrewsByBrewery as vm'
+        }
+      }
+    })
+
     .state('tab.chats', {
         url: '/chats',
         views: {

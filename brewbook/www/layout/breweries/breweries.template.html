@@ -5,7 +5,8 @@
       <ion-item
         class="item-remove-animate item-icon-right"
         collection-repeat="brewery in vm.breweries"
-        type="item-text-wrap">
+        type="item-text-wrap"
+        href="#/tab/breweries/{{brewery | key}}">
         <h2>{{brewery}}</h2>
       </ion-item>
     </ion-list>
