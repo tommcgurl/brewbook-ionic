@@ -14,7 +14,8 @@
     // The services 'public' definition
     var brewService = {
       getBrewList: getBrewList,
-      getBreweryList: getBreweryList
+      getBreweryList: getBreweryList,
+      getBrewsByBrewery: getBrewsByBrewery
     };
 
     return brewService;
@@ -47,6 +48,16 @@
       });
 
       // return promise to caller
+      return deffered.promise;
+    }
+
+    function getBrewsByBrewery(breweryID) {
+      var deffered = $q.defer();
+
+      _getBrews().then(function(brewObject) {
+        deffered.resolve(brewObject[breweryID]);
+      });
+
       return deffered.promise;
     }
 

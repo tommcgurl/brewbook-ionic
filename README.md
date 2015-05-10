@@ -315,6 +315,12 @@ Since we already made a view of brews in our [brews tab](#brews-tab) section, th
     - We can create our own Angular filter that will remove the whitespace and convert the full brewery name to a brewery key for our brews object.
     - Now that each list item invokes a brewery specific route, we need to add that route to our app.js.
 
+4. Create a brewsByBrewery controller
+    - The controller just needs a list of the beers for the given brewery.
+    - We can pull the brewery key from our URL since we passed it.
+        + We will do this using UIRouter's $stateParams module
+    - We will then call a function on the brewService that will return the brews for that brewery.
+
     
  
         
