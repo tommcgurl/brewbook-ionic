@@ -321,6 +321,14 @@ Since we already made a view of brews in our [brews tab](#brews-tab) section, th
         + We will do this using UIRouter's $stateParams module
     - We will then call a function on the brewService that will return the brews for that brewery.
 
+####Brew Detail
+When we selecta brew from one of our lists it should show us the details
+
+1. Add a service that will return a single brew given the brewery and it's name.
+    - Added a service to BrewService.js that uses a simpel array filter to pull out the proper brew from the breweries array.
+
+
+
     
  
         

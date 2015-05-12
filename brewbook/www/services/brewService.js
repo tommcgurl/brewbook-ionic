@@ -15,7 +15,8 @@
     var brewService = {
       getBrewList: getBrewList,
       getBreweryList: getBreweryList,
-      getBrewsByBrewery: getBrewsByBrewery
+      getBrewsByBrewery: getBrewsByBrewery,
+      getBrewDetail: getBrewDetail
     };
 
     return brewService;
@@ -57,6 +58,16 @@
       _getBrews().then(function(brewObject) {
         deffered.resolve(brewObject[breweryID]);
       });
+
+      return deffered.promise;
+    }
+
+    function getBrewDetail(breweryID, brewName) {
+      var deffered = $q.defer();
+
+      _getBrews().then(function(brewObject) {
+        deffered.resolve(_getBrewDetail(brewObject, breweryID, brewName))
+      })
 
       return deffered.promise;
     }
@@ -112,6 +123,13 @@
       });
 
       return _allBreweries = allBreweries;
+    }
+
+    function _getBrewDetail(brewObject, breweryID, brewName) {
+      var brewArray = brewObject[breweryID];
+      return brewArray.filter(function(brew) {
+        return brew.name === brewName;
+      })[0];
     }
   }
 })();
