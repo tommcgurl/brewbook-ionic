@@ -15,7 +15,6 @@
     function activate() {
       BrewService.getBrewList()
         .then(function(data) {
-          console.log(data);
           vm.brews = data;
         });
     }

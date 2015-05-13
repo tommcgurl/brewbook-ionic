@@ -322,12 +322,22 @@ Since we already made a view of brews in our [brews tab](#brews-tab) section, th
     - We will then call a function on the brewService that will return the brews for that brewery.
 
 ####Brew Detail
-When we selecta brew from one of our lists it should show us the details
+When we select a brew from one of our lists it should show us the details
 
 1. Add a service that will return a single brew given the brewery and it's name.
     - Added a service to BrewService.js that uses a simpel array filter to pull out the proper brew from the breweries array.
 
-
+2. Add a route and the controller
+    - Create a brewDetail folder in the layout directory. 
+      + put our new controller and template in here.
+    - We can add a route to app.js that will contain two url parameters
+      + brewery and brewName
+    - Alter the brew list so that each item is routes to the detail view
+      + We simply add an ng-href to the ion-items in brewList.html
+      + We pass the brewery and brewName as the url parameters.
+    - For the controller:
+      + we simply pull the brewery and the brewName from the $stateParams module.
+      + Then we invoke our new service function to get the details for the current selected beer.
 
     
  

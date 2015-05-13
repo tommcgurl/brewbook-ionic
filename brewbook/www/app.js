@@ -23,83 +23,74 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
 
 .config(function($stateProvider, $urlRouterProvider) {
 
-    // Ionic uses AngularUI Router which uses the concept of states
-    // Learn more here: https://github.com/angular-ui/ui-router
-    // Set up the various states which the app can be in.
-    // Each state's controller can be found in controllers.js
-    $stateProvider
+  // Ionic uses AngularUI Router which uses the concept of states
+  // Learn more here: https://github.com/angular-ui/ui-router
+  // Set up the various states which the app can be in.
+  // Each state's controller can be found in controllers.js
+  $stateProvider
 
-    // setup an abstract state for the tabs directive
-      .state('tab', {
-      url: "/tab",
-      abstract: true,
-      templateUrl: "layout/tabs.template.html"
-    })
+  // setup an abstract state for the tabs directive
+    .state('tab', {
+    url: "/tab",
+    abstract: true,
+    templateUrl: "layout/tabs.template.html"
+  })
 
-    // Each tab has its own nav history stack:
+  // Each tab has its own nav history stack:
 
-    .state('tab.brews', {
-      url: '/brews',
-      views: {
-        'tab-brews': {
-          templateUrl: 'layout/allBrews/allBrews.template.html',
-          controller: 'Brews as vm'
-        }
+  .state('tab.brews', {
+    url: '/brews',
+    views: {
+      'tab-brews': {
+        templateUrl: 'layout/allBrews/allBrews.template.html',
+        controller: 'Brews as vm'
       }
-    })
+    }
+  })
 
-    .state('tab.breweries', {
-      url: '/breweries',
-      views: {
-        'tab-breweries': {
-          templateUrl: 'layout/breweries/breweries.template.html',
-          controller: 'Breweries as vm'
-        }
+  .state('tab.brew-detail', {
+    url: '/brews/:brewery/:brewName',
+    views: {
+      'tab-brews': {
+        templateUrl: 'layout/brewDetail/brewDetail.template.html',
+        controller: 'BrewDetail as vm'
       }
-    })
+    }
+  })
 
-    .state('tab.brews-by-brewery', {
-      url: '/breweries/:brewery',
-      views: {
-        'tab-breweries': {
-          templateUrl: 'layout/brewsByBrewery/brewsByBrewery.template.html',
-          controller: 'BrewsByBrewery as vm'
-        }
+  .state('tab.breweries', {
+    url: '/breweries',
+    views: {
+      'tab-breweries': {
+        templateUrl: 'layout/breweries/breweries.template.html',
+        controller: 'Breweries as vm'
       }
-    })
+    }
+  })
 
-    .state('tab.chats', {
-        url: '/chats',
-        views: {
-          'tab-chats': {
-            templateUrl: 'layout/chatsTab/chats.template.html',
-            controller: 'Chats'
-          }
-        }
-      })
-      .state('tab.chat-detail', {
-        url: '/chats/:chatId',
-        views: {
-          'tab-chats': {
-            templateUrl: 'layout/chatDetail/chatDetail.template.html',
-            controller: 'ChatDetail'
-          }
-        }
-      })
-
-    .state('tab.account', {
-      url: '/account',
-      views: {
-        'tab-account': {
-          templateUrl: 'layout/accountTab/account.template.html',
-          controller: 'Account'
-        }
+  .state('tab.brews-by-brewery', {
+    url: '/breweries/:brewery',
+    views: {
+      'tab-breweries': {
+        templateUrl: 'layout/brewsByBrewery/brewsByBrewery.template.html',
+        controller: 'BrewsByBrewery as vm'
       }
-    });
+    }
+  })
 
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tab/brews');
+  .state('tab.account', {
+    url: '/account',
+    views: {
+      'tab-account': {
+        templateUrl: 'layout/accountTab/account.template.html',
+        controller: 'Account'
+      }
+    }
   });
+
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/tab/brews');
+});
 // Set the controller module
 angular.module('starter.controllers', []);
 
