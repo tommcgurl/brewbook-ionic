@@ -65,6 +65,7 @@ https://<your app name here>.firebaseio.com/brews.json
     - You should see a json object with keys representing a brewery name where each breweries value is an array of objects reprenting a beer.
 
 ####Setup Ionic and Generate Starter Template
+    - The template will display all of the detials of our current brew. we can use an ng-if directive on values that may not be present, so that we don't show useless labels.
 
 1. Follow the [instructions for installing ionic](http://ionicframework.com/getting-started/)
 
@@ -97,7 +98,9 @@ For example, the brewsTab component will be in a folder like this
     ```
     BrewsTab 
        |__ brews.controller.js
-       |__ brews.template.js
+       |__ brews.template
+          - The template will display all of the detials of our current brew. we can use an ng-if directive on values that may not be present, so that we don't show useless labels.
+    .js
     ```
 
 Feel free to skip these commits since they are just changing around the generated code to follow the style guide best practices.
@@ -209,20 +212,28 @@ Create a tab for viewing all brews
         + We will use the $q library for this
     - We then expose this new function on the factory for consumers to call
 
-2. Now we can create a controller and template for our new view
-    - First we'll add an _allBrews_ folder to our _layout_ folder that will hold our _allBrews.controller.js_ and _allBrews.template.html_
+2. Now we can create a controller and template
+    - The template will display all of the detials of our current brew. we can use an ng-if directive on values that may not be present, so that we don't show useless labels. for our new view
+    - First we'll add an _allBrews_ folder to our _layout_ folder that will hold our _allBrews.controller.js_ and _allBrews.template
+        - The template will display all of the detials of our current brew. we can use an ng-if directive on values that may not be present, so that we don't show useless labels.
+  .html_
     - The controller should have the array of brews on it's scope
     - We will be using the [_controllerAs_](https://github.com/johnpapa/angular-styleguide#controlleras-with-vm) syntax
     - So we will create a property, vm.brews
     - We will inject our newly created _BrewService_
     - In our activate function we will call BrewService.getBrewList and set vm.brews to the response.
-    - The Template will use the [collection-repeat directive](http://blog.ionic.io/collection-repeat-iteration-two/) mentioned above to create a list item for every brew
-    - The template should contain an _ion-view_, and an _ion-content_ element.
+    - The Template
+        - The template will display all of the detials of our current brew. we can use an ng-if directive on values that may not be present, so that we don't show useless labels.
+   will use the [collection-repeat directive](http://blog.ionic.io/collection-repeat-iteration-two/) mentioned above to create a list item for every brew
+    - The template
+        - The template will display all of the detials of our current brew. we can use an ng-if directive on values that may not be present, so that we don't show useless labels.
+   should contain an _ion-view_, and an _ion-content_ element.
     - Inside the _ion-content_ we will render an _ion-list_ of _ion-items_
     - In each ion-item we will put the details of the brew
     - An [_ion-spinner_](http://ionicframework.com/docs/api/directive/ionSpinner/) element will be added so that we can display a spinner while the data is being fetched.
 
-3. Now we have to modify the _tabs.template.html_ and _app.js_
+3. Now we have to modify the _tabs.template
+    - The template will display all of the detials of our current brew. we can use an ng-if directive on values that may not be present, so that we don't show useless labels..html_ and _app.js_
     - We can change the tab-dash to tab-brews
         + Since we no longer need that generated tab we can remove the _layout/dashTab_ folder
     - We can change the icon for the brews tab to the _pint_ icon provided by ionicons!
@@ -247,9 +258,12 @@ Create a tab for viewing all the breweries
         + In this case, each brew object contains that formated name so we can use that.
     - We will expose this function on our factory as _getBreweryList_
 
-2. Create a controller and template 
+2. Create a controller and template
+    - The template will display all of the detials of our current brew. we can use an ng-if directive on values that may not be present, so that we don't show useless labels. 
     - First we create a new folder _layout/breweries_
     - Then create new files for the controller and template
+        - The template will display all of the detials of our current brew. we can use an ng-if directive on values that may not be present, so that we don't show useless labels.
+  
     - The controller
         + should contain a breweries object on it's scope
         + It will call an _activate_ function which will use our new service to get the list of breweries
@@ -332,12 +346,15 @@ When we select a brew from one of our lists it should show us the details
       + put our new controller and template in here.
     - We can add a route to app.js that will contain two url parameters
       + brewery and brewName
-    - Alter the brew list so that each item is routes to the detail view
+    - Alter the brew list so that each item, when selected, routes to the detail view
       + We simply add an ng-href to the ion-items in brewList.html
       + We pass the brewery and brewName as the url parameters.
     - For the controller:
       + we simply pull the brewery and the brewName from the $stateParams module.
       + Then we invoke our new service function to get the details for the current selected beer.
+
+3. Make the brewDetail template
+    - The template will display all of the detials of our current brew. we can use an ng-if directive on values that may not be present, so that we don't show useless labels.
 
     
  
