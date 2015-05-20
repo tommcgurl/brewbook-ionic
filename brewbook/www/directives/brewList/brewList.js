@@ -6,6 +6,7 @@
   function brewList() {
     var directive = {
       scope: {
+        tab: '@',
         brews: '='
       },
       templateUrl: '/directives/brewList/brewList.html',

@@ -78,12 +78,12 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
     }
   })
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.brews-by-brewery-detail', {
+    url: '/breweries/:brewery/:brewName',
     views: {
-      'tab-account': {
-        templateUrl: 'layout/accountTab/account.template.html',
-        controller: 'Account'
+      'tab-breweries' : {
+        templateUrl: 'layout/brewDetail/brewDetail.template.html',
+        controller: 'BrewDetail as vm'
       }
     }
   });

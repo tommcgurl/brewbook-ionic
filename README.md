@@ -354,7 +354,19 @@ When we select a brew from one of our lists it should show us the details
       + Then we invoke our new service function to get the details for the current selected beer.
 
 3. Make the brewDetail template
-    - The template will display all of the detials of our current brew. we can use an ng-if directive on values that may not be present, so that we don't show useless labels.
+    - The template will display all of the details of our current brew. we can use an ng-if directive on values that may not be present, so that we don't show useless labels.
+
+4. Make the brewDetail work for both the *brews* and *breweries* tab
+    - We can use the brewDetail layout to display the details of our beers from our _brewsByBrewery_ layout
+    - We just have to make a new route
+        - This route will be a child of the *tab.brews-by-brewery* and will use the *tab.breweries*
+    - We will have to make sure that our _brewList_ directive (that we are also re-using by these two views) knows which route to direct to when selected.
+        - We added an ng-href in step 2 above.
+        - We will need to alter this ng-href to route properly.
+        - The brewList will have to know which tab it is being displayed in
+        - We can do this by adding another property to the brewList's isolate scope.
+        - It will use this new *tab* property to direct the ng-href to the proper route.
+    - We can pass this tab property to our brewList directive from our *allBrews* and *brewsByBrewery* layouts.
 
     
  

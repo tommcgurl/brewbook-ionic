@@ -2,7 +2,7 @@
   <ion-item
     class="item-remove-animate item-avatar item-icon-right" collection-repeat="brew in brews"
     type="item-text-wrap"
-    ng-href="#/tab/brews/{{brew.brewery | key}}/{{brew.name}}">
+    ng-href="#/tab/{{tab}}/{{brew.brewery | key}}/{{brew.name}}">
     <img ng-src="{{brew.image}}">
     <h2>{{brew.name}}</h2>
     <p>{{brew.brewery}}</p>

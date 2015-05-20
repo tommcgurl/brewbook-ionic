@@ -22,7 +22,7 @@
                     <h3 class="label-heading">STYLE </h3> {{vm.brew.style}}
                 </div>
                 <div class="row">
-                    <div class="col col-50">
+                    <div ng-if="vm.brew.abv"class="col col-50">
                         <h3 class="label-heading">ABV </h3> {{vm.brew.abv}}
                     </div>
                     <div ng-if="vm.brew.ibu" class="col col-50">

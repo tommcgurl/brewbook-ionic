@@ -6,7 +6,7 @@
   BrewService.$inject = ['$q', '$firebaseObject'];
 
   function BrewService($q, $firebaseObject) {
-    var _url = 'https://brewbook-react.firebaseio.com/brews',
+    var _url = 'https://brewbook-ionic.firebaseio.com/brews',
       _promise,
       _allBrews,
       _allBreweries;
