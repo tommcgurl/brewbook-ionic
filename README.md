@@ -382,6 +382,16 @@ We will finally get to do some work with ngCordova!! That means some hardware in
     + breweries
     + brewsByBrewery
 
+2. Create the basic layout and controller files for our new route
+  - The template will contain some placeholder input fields and a save button for now
+  - The controller will simply have some logic to close the view for now.
+    + We will use ionics **$ionicHistory** module to handle closing the view and taking us back to the previous view.
+
+3. Next we can add a route for our new view
+  - Since this route exists outside of our tab interface ( it doesn't belong to either the brew or breweries tab) we should make an entirely seperate state for it.
+  - In other words it should not be a child of the 'tab' state
+  - We can also create 
+
     
  
         
