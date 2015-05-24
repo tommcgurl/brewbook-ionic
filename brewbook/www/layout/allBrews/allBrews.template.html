@@ -1,6 +1,11 @@
 <ion-view view-title="Brews">
-  <ion-spinner class="col" ng-hide="vm.brews"></ion-spinner>
-  <ion-content>
-    <bb-brew-list brews="vm.brews" tab="brews"></bb-brew-list>
-  </ion-content>
+    <ion-nav-buttons side="secondary">
+        <button class="button button-clear button-positive" ng-href="#/addBrew">
+            Add
+        </button>
+    </ion-nav-buttons>
+    <ion-spinner class="col" ng-hide="vm.brews"></ion-spinner>
+    <ion-content>
+        <bb-brew-list brews="vm.brews" tab="brews"></bb-brew-list>
+    </ion-content>
 </ion-view>

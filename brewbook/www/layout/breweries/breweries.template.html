@@ -1,14 +1,18 @@
 <ion-view view-title="Breweries">
-  <ion-spinner class="col" ng-hide="vm.breweries"></ion-spinner>
-  <ion-content>
-    <ion-list ng-if="vm.breweries">
-      <ion-item
-        class="item-remove-animate item-icon-right"
-        collection-repeat="brewery in vm.breweries"
-        type="item-text-wrap"
-        ng-href="#/tab/breweries/{{brewery | key}}">
-        <h2>{{brewery}}</h2>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+    <ion-nav-buttons side="secondary">
+        <button class="button button-clear button-positive" ng-href="#/addBrew">
+            Add
+        </button>
+    </ion-nav-buttons>
+    <ion-spinner class="col" ng-hide="vm.breweries"></ion-spinner>
+    <ion-content>
+        <ion-list ng-if="vm.breweries">
+            <ion-item class="item-remove-animate item-icon-right"
+              collection-repeat="brewery in vm.breweries"
+              type="item-text-wrap"
+              ng-href="#/tab/breweries/{{brewery | key}}">
+                <h2>{{brewery}}</h2>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>

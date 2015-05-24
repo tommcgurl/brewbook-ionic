@@ -368,6 +368,20 @@ When we select a brew from one of our lists it should show us the details
         - It will use this new *tab* property to direct the ng-href to the proper route.
     - We can pass this tab property to our brewList directive from our *allBrews* and *brewsByBrewery* layouts.
 
+#### Add a brew
+So far we can view brews, breweries, and individual details, but none of this is any good if we can't catalog the delicious new beers we try! 
+
+Now we are on to another fun part. We are going to make the form for adding a new brew. I'm going to break this section up a bit since it's a more complex.
+
+We will finally get to do some work with ngCordova!! That means some hardware integration! We will be using ngCordova to access our mobile device's camera and photo album so that we can add a picture of our nice new brew.
+
+1. Add an 'Add' button to the nav bar to navigate to this new layout we will be creating.
+  - It will direct to a new route (#/addBrew) using the *ng-href* directive
+  - We can add it to the layouts that make sense, in this case:
+    + allBrews
+    + breweries
+    + brewsByBrewery
+
     
  
         
