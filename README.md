@@ -390,7 +390,7 @@ We will finally get to do some work with ngCordova!! That means some hardware in
 3. Next we can add a route for our new view
   - Since this route exists outside of our tab interface ( it doesn't belong to either the brew or breweries tab) we should make an entirely seperate state for it.
   - In other words it should not be a child of the 'tab' state
-  - We can also create 
+  - Add links to this new rote from our 'Add' button
 
     
  

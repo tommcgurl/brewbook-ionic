@@ -29,8 +29,15 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+  // setup state for the addBrew layout
+  .state('addBrew', {
+    url: '/addBrew',
+    templateUrl: 'layout/addBrew/addBrew.template.html',
+    controller: 'AddBrew as vm'
+  })
+
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: "/tab",
     abstract: true,
     templateUrl: "layout/tabs.template.html"
