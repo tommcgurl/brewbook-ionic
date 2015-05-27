@@ -7696,3 +7696,13 @@ ion-spinner {
 
 span.input-label.has-input {
   color: #bbbbbb; }
+
+.side-select {
+  margin-top: 44px;
+  text-align: center; }
+
+.side-select ion-scroll {
+  height: 85%; }
+
+.option-list ion-item {
+  border: none; }

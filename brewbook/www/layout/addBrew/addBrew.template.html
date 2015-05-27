@@ -7,23 +7,43 @@
             Close
         </button>
     </ion-nav-buttons>
-    <ion-content>
-        <div class="list">
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Brew Name</span>
-                <input type="text" placeholder="Brew Name">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Brewery</span>
-                <input type="text" placeholder="Brewery">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Description</span>
-                <input type="text" placeholder="Description">
-            </label>
-        </div>
-        <div class="padding">
-            <button class="button button-block button-positive">Save Brew</button>
-        </div>
-    </ion-content>
+    <ion-side-menus>
+        <ion-side-menu-content>
+            <ion-content>
+                <div class="list">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Brew Name</span>
+                        <input type="text" placeholder="Brew Name">
+                    </label>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Brewery</span>
+                        <input ng-model="vm.brew.brewery" ng-click="vm.toggleRight()" type="text" placeholder="Brewery">
+                    </label>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Style</span>
+                        <input ng-model="vm.brew.style" ng-click="vm.toggleLeft()" type="text" placeholder="Style">
+                    </label>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Description</span>
+                        <textarea type="text" placeholder="Description"></textarea>
+                    </label>
+                </div>
+                <div class="padding">
+                    <button class="button button-block button-positive">Save Brew</button>
+                </div>
+            </ion-content>
+        </ion-side-menu-content>
+        <bb-select-menu
+          title="Select A Brewery"
+          options="vm.breweries"
+          side="right"
+          select="vm.onSelectBrewery(option)">
+        </bb-select-menu>
+        <bb-select-menu
+          title="Select A Style"
+          options="vm.styles"
+          side="left"
+          select="vm.onSelectStyle(option)">
+        </bb-select-menu>
+    </ion-side-menus>
 </ion-view>

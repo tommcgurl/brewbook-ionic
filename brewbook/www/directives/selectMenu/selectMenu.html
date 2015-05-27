@@ -1,0 +1,14 @@
+<ion-side-menu class="brewery-select side-select" side="{{side}}">
+    <ion-list>
+        <ion-item id="header" nav-clear menu-close>
+            {{title}}
+        </ion-item>
+    </ion-list>
+    <ion-scroll>
+        <ion-list class="option-list">
+            <ion-item ng-repeat="option in options" ng-click="select({option: '{{option}}'})">
+                {{option}}
+            </ion-item>
+        </ion-list>
+    </ion-scroll>
+</ion-side-menu>

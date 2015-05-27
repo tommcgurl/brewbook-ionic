@@ -396,6 +396,25 @@ We will finally get to do some work with ngCordova!! That means some hardware in
   - We will create a simple service that returns an array of style options
   - The last item in the array is 'other', which we will later use to indicate that the user would like to enter a different style
 
+5. Create a directive for the 'select menu'
+  - One type of input I feel never works well on mobile is the **<select>** dropdown.
+  - I prefer to use a **side-menu** instead of a dropdown
+    + The idea is that when a use clicks on the style or brewery input, a side menu appears with their options instead of a dropdown menu.
+    + The user experience is nice and capitalizes on the screen realestate of a mobile device.
+  - Since we will be using this sort of menu for both our brewery and style selections (and any other future select inputs) this is a perfect candidate for a custom directive.
+  - The directive's isolate scope will consist of 4 things
+    + **title**
+      - The menu title e.g. *Select a Brewery*
+    + **side**
+      - The side of the screen our *side-menu* will appear from (left or right).
+    + **select**
+      - an onclick function to handle the selection of an option
+    + **options**
+      - The options for the select menu
+  - Passing a function to a directive is rather complex. For a good explanation check out [Dan Whalin's awesome post on this topic ](http://weblogs.asp.net/dwahlin/creating-custom-angularjs-directives-part-3-isolate-scope-and-function-parameters)
+  - We have to do some manipulation in the *compile* function of our directive
+    + Here we must set the *side* attribute of our menu, to the *side* property passed to this directive.
+
     
  
         
