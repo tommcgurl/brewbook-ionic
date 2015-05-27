@@ -392,6 +392,10 @@ We will finally get to do some work with ngCordova!! That means some hardware in
   - In other words it should not be a child of the 'tab' state
   - Add links to this new rote from our 'Add' button
 
+4. Create a style service for the 'style' select input
+  - We will create a simple service that returns an array of style options
+  - The last item in the array is 'other', which we will later use to indicate that the user would like to enter a different style
+
     
  
         
