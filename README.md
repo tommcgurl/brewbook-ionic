@@ -415,6 +415,10 @@ We will finally get to do some work with ngCordova!! That means some hardware in
   - We have to do some manipulation in the *compile* function of our directive
     + Here we must set the *side* attribute of our menu, to the *side* property passed to this directive.
 
+6. Add the ABV and IBU input fields
+  - We are going to add some basic input fields for ABV and IBU, we will allign them next to eachother.
+  - Later when we add validation to this form, we will ensure that these values are numbers
+
     
  
         

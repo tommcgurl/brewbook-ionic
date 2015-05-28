@@ -7701,6 +7701,10 @@ span.input-label.has-input {
   margin-top: 44px;
   text-align: center; }
 
+.no-pad .item-input {
+  border-width: 0 0 0 1px;
+  padding: 8px 0 5px 16px; }
+
 .side-select ion-scroll {
   height: 85%; }
 

@@ -23,6 +23,16 @@
                         <span class="input-label">Style</span>
                         <input ng-model="vm.brew.style" ng-click="vm.toggleLeft()" type="text" placeholder="Style">
                     </label>
+                    <div class="row no-pad">
+                        <label class="col item item-input item-floating-label">
+                            <span class="input-label">ABV</span>
+                            <input ng-model="vm.brew.abv" type="text" placeholder="ABV">
+                        </label>
+                        <label class="col item item-input item-floating-label">
+                            <span class="input-label">IBU</span>
+                            <input ng-model="vm.brew.ibu" type="text" placeholder="IBU">
+                        </label>
+                    </div>
                     <label class="item item-input item-floating-label">
                         <span class="input-label">Description</span>
                         <textarea type="text" placeholder="Description"></textarea>
@@ -33,17 +43,9 @@
                 </div>
             </ion-content>
         </ion-side-menu-content>
-        <bb-select-menu
-          title="Select A Brewery"
-          options="vm.breweries"
-          side="right"
-          select="vm.onSelectBrewery(option)">
+        <bb-select-menu title="Select A Brewery" options="vm.breweries" side="right" select="vm.onSelectBrewery(option)">
         </bb-select-menu>
-        <bb-select-menu
-          title="Select A Style"
-          options="vm.styles"
-          side="left"
-          select="vm.onSelectStyle(option)">
+        <bb-select-menu title="Select A Style" options="vm.styles" side="left" select="vm.onSelectStyle(option)">
         </bb-select-menu>
     </ion-side-menus>
 </ion-view>

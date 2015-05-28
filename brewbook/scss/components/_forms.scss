@@ -6,3 +6,8 @@ span.input-label.has-input {
   margin-top: $bar-height;
   text-align: center;
 }
+
+.no-pad .item-input{
+  border-width: 0 0 0 1px;
+  padding: 8px 0 5px 16px;
+}
