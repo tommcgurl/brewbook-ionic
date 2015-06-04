@@ -11,7 +11,7 @@
         select: '&',
         options: '='
       },
-      templateUrl: '/directives/selectMenu/selectMenu.html',
+      templateUrl: 'directives/selectMenu/selectMenu.html',
       restrict: 'E',
       compile: function(tElement, tAttrs) {
         // Modify the templates 'side' attribute

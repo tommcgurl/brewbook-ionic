@@ -9,7 +9,7 @@
         tab: '@',
         brews: '='
       },
-      templateUrl: '/directives/brewList/brewList.html',
+      templateUrl: 'directives/brewList/brewList.html',
       restrict: 'E'
     };
     return directive;
