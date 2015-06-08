@@ -419,6 +419,11 @@ We will finally get to do some work with ngCordova!! That means some hardware in
   - We are going to add some basic input fields for ABV and IBU, we will allign them next to eachother.
   - Later when we add validation to this form, we will ensure that these values are numbers
 
+#### Image Picker
+We need a way to add an image to our newly entered brew. We can make an image picker directive.
+
+1. First we need to add the **[ngCordova camera plugin](http://ngcordova.com/docs/plugins/camera/) to our ionic app.
+
     
  
         
