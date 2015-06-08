@@ -397,7 +397,7 @@ We will finally get to do some work with ngCordova!! That means some hardware in
   - The last item in the array is 'other', which we will later use to indicate that the user would like to enter a different style
 
 5. Create a directive for the 'select menu'
-  - One type of input I feel never works well on mobile is the **<select>** dropdown.
+  - One type of input I feel never works well on mobile is the **select** dropdown.
   - I prefer to use a **side-menu** instead of a dropdown
     + The idea is that when a use clicks on the style or brewery input, a side menu appears with their options instead of a dropdown menu.
     + The user experience is nice and capitalizes on the screen realestate of a mobile device.
@@ -422,7 +422,15 @@ We will finally get to do some work with ngCordova!! That means some hardware in
 #### Image Picker
 We need a way to add an image to our newly entered brew. We can make an image picker directive.
 
-1. First we need to add the **[ngCordova camera plugin](http://ngcordova.com/docs/plugins/camera/) to our ionic app.
+1. First we need to add the **[ngCordova camera plugin](http://ngcordova.com/docs/plugins/camera/)** to our ionic app.
+
+2. Create an **ImageService** that will use the **$cordovaCamera** module to access our device's photo library
+  - Later we can improve this and allow the user to take a photo as well.
+  - For now we will simply set some image options. 
+  - Then we are going to return a promise to the caller.  
+    + This promise will resolve once we have recieved the imageData.
+  - The only function we are exposing is the *getPic* function
+  
 
     
  
