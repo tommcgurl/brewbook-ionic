@@ -11,19 +11,22 @@
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <script src="cordova.js"></script>
     <!-- inject:js -->
     <script src="app.js"></script>
     <script src="filters/key.js"></script>
     <script src="services/brewService.js"></script>
+    <script src="services/imageService.js"></script>
     <script src="services/styleService.js"></script>
     <script src="directives/brewList/brewList.js"></script>
+    <script src="directives/imagePicker/imagePicker.js"></script>
     <script src="directives/selectMenu/selectMenu.js"></script>
     <script src="layout/addBrew/addBrew.controller.js"></script>
     <script src="layout/allBrews/allBrews.controller.js"></script>
     <script src="layout/brewDetail/brewDetail.controller.js"></script>
-    <script src="layout/brewsByBrewery/brewsByBrewery.controller.js"></script>
     <script src="layout/breweries/breweries.controller.js"></script>
+    <script src="layout/brewsByBrewery/brewsByBrewery.controller.js"></script>
     <!-- endinject -->
   </head>
   <body ng-app="starter">
@@ -40,7 +43,7 @@
       have templates inline in this html file if you'd like).
     -->
     <ion-nav-view></ion-nav-view>
-    <script src="lib/firebase.js"></script>
-    <script src="lib/angularfire.min.js"></script>
+    <script src="lib/firebase/firebase.js"></script>
+    <script src="lib/angularfire/dist/angularfire.min.js"></script>
   </body>
 </html>
