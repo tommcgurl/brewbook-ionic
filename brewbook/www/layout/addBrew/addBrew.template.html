@@ -17,11 +17,11 @@
                     </label>
                     <label class="item item-input item-floating-label">
                         <span class="input-label">Brewery</span>
-                        <input ng-model="vm.brew.brewery" ng-click="vm.toggleRight()" type="text" placeholder="Brewery">
+                        <input ng-model="vm.brew.brewery" ng-click="vm.toggleRight()" type="text" placeholder="Brewery" readonly="true">
                     </label>
                     <label class="item item-input item-floating-label">
                         <span class="input-label">Style</span>
-                        <input ng-model="vm.brew.style" ng-click="vm.toggleLeft()" type="text" placeholder="Style">
+                        <input ng-model="vm.brew.style" ng-click="vm.toggleLeft()" type="text" placeholder="Style" readonly="true">
                     </label>
                     <div class="row no-pad">
                         <label class="col item item-input item-floating-label">
@@ -38,6 +38,7 @@
                         <textarea type="text" placeholder="Description"></textarea>
                     </label>
                 </div>
+                <bb-image-picker></bb-image-picker>
                 <div class="padding">
                     <button class="button button-block button-positive">Save Brew</button>
                 </div>

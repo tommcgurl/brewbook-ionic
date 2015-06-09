@@ -1,0 +1,13 @@
+<div ng-if="!ip.imageURI" class="image-picker card" ng-click="ip.getPic()">
+  <span class="ion-plus"></span>
+  <span class="ion-camera"></span>
+</div>
+<div ng-if="ip.imageURI" class="image-container" ng-click="ip.editPic()">
+    <img ng-src="{{ip.imageURI}}">
+    <span ng-click="ip.removePic()" class="badge badge-dark"><span class="ion-close-round"></span></span>
+</div>
+
+<!--  <div class="image-container" ng-click="ip.editPic()">
+    <img ng-src="../img/ionic.png" style="background-color: white;">
+    <span ng-click="ip.removePic()" class="badge badge-dark"><span class="ion-close-round"></span></span>
+</div> -->

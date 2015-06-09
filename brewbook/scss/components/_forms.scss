@@ -1,5 +1,5 @@
 span.input-label.has-input {
-  color: #bbbbbb;
+  color: #888888;
 }
 
 .side-select {
@@ -10,4 +10,10 @@ span.input-label.has-input {
 .no-pad .item-input{
   border-width: 0 0 0 1px;
   padding: 8px 0 5px 16px;
+}
+
+.item-input {
+  input[readonly] {
+    background-color: #ffffff;
+  }
 }

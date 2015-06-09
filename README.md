@@ -430,6 +430,17 @@ We need a way to add an image to our newly entered brew. We can make an image pi
   - Then we are going to return a promise to the caller.  
     + This promise will resolve once we have recieved the imageData.
   - The only function we are exposing is the *getPic* function
+
+3. Create the **Image Picker** directive controller and template. 
+  - This directive will let you add an image, remove it, and change it.
+  - It will use the new **ImageSerice** we made in the previous step.
+  - Once an image is added, it will be displayed.
+    + It will have a badge in the top right that will allow you to remove the image.
+    + Clicking the image again will allow you to change to a different image.
+  - The image service lets us specify that we want square images.
+    + While I prefer not to force the user to crop the image, I think square images will make for a more uniform UX
+  - We will show some confirmation popups to the user before they remove or change an image.
+  - Then simply add the ImagePicker to the **AddBrew** Layout.
   
 
     
