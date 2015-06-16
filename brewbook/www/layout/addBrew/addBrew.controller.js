@@ -16,6 +16,7 @@
     vm.styles;
     vm.onSelectStyle = onSelectStyle;
     vm.onSelectBrewery = onSelectBrewery;
+    vm.save = save;
     vm.brew = {};
 
     activate();
@@ -56,6 +57,11 @@
     function onSelectBrewery(brewery) {
       vm.brew.brewery = brewery;
       toggleRight();
+    }
+    function save() {
+      BrewService.addBrew(vm.brew);
+      // Now close the add brew view
+      close();
     }
   };
 })();

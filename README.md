@@ -451,7 +451,8 @@ Now we want to be able to save our beer to our firebase database.
 
 1. Add a save function to our BrewService.
   - we simply use the angularfire object's **$save** function
-  
+
+2. Create a save function in the **AddBrew** layout to pass the user's input to our **BrewService**
 
     
  
