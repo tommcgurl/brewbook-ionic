@@ -445,6 +445,12 @@ We need a way to add an image to our newly entered brew. We can make an image pi
 4. Modify the **Image Picker** to accept a brew object as an isolate scope
   - By passing in the brew object from our **AddBrew** layout's scope, we can attach the selected image to the brew object.
   - We will also modify our Addbrew to properly pass the brew object, and add some ng-model attributes to our inputs so that they are two-way bound to our new brew object.
+
+#### Save Brew
+Now we want to be able to save our beer to our firebase database.
+
+1. Add a save function to our BrewService.
+  - we simply use the angularfire object's **$save** function
   
 
     

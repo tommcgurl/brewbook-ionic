@@ -8,7 +8,7 @@
   function BrewService($q, $firebaseObject) {
     var _url = 'https://brewbook-ionic.firebaseio.com/brews',
       _promise,
-      _allBrews,
+      _firebaseObject,
       _allBreweries;
 
     // The services 'public' definition
@@ -16,7 +16,8 @@
       getBrewList: getBrewList,
       getBreweryList: getBreweryList,
       getBrewsByBrewery: getBrewsByBrewery,
-      getBrewDetail: getBrewDetail
+      getBrewDetail: getBrewDetail,
+      addBrew: _addBrew
     };
 
     return brewService;
@@ -81,15 +82,32 @@
         return _promise;
       }
 
-      var ref = new Firebase(_url),
-        res = $firebaseObject(ref);
+      var ref = new Firebase(_url);
+
+      _firebaseObject = $firebaseObject(ref);
 
       // Return a promise
-      _promise = res.$loaded()
+      _promise = _firebaseObject.$loaded()
         .then(function(data) {
           return data;
         });
       return _promise;
+    }
+
+    function _addBrew(brew) {
+      var breweryKey = brew.brewery.replace(/\W/g, '').toLowerCase();
+
+      if(_firebaseObject[breweryKey]) {
+        _firebaseObject[breweryKey].push(brew);
+      } else {
+        _firebaseObject[breweryKey] = [brew];
+      }
+
+      _firebaseObject.$save().then(function(ref) {
+        ref.key() === _firebaseObject.$id; // true
+      }, function(error) {
+        console.log("Error:", error);
+      });
     }
 
     /**
@@ -97,32 +115,23 @@
      * from our brew object
      */
     function _getAllBrews(brewObject) {
-      // Check if we already have the array
-      if (_allBrews) {
-        return _allBrews;
-      }
-
       // Create the array from the brews object
       var allBrews = [];
       brewObject.forEach(function(brewery) {
         allBrews.push.apply(allBrews, brewery);
       })
 
-      return _allBrews = allBrews;
+      return allBrews;
     }
 
     function _getAllBreweries(brewObject) {
-
-      if (_allBreweries) {
-        return _allBreweries;
-      }
 
       var allBreweries = [];
       brewObject.forEach(function(brewery) {
         allBreweries.push(brewery[0].brewery);
       });
 
-      return _allBreweries = allBreweries;
+      return allBreweries;
     }
 
     function _getBrewDetail(brewObject, breweryID, brewName) {
