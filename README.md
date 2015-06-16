@@ -9,6 +9,9 @@ This verision of the app is implemented with
 - [Firebase](https://www.firebase.com/) as the a backend with [AngularFire](https://www.firebase.com/docs/web/libraries/angular/). 
 - [ng-Cordova](http://ngcordova.com/) for any hardware interactions such as the camera.
 
+####Note
+I use [Genymotion](https://www.genymotion.com/#!/) to test on android as apposed to the regular android emulator. It's fast to boot up, and super easy to use. You can have the emulated device use your computer's camera as it's own.
+
 
 ####The App
 The App containts the basic CRUD functionality with regards to beers. The user should be able to
@@ -454,6 +457,14 @@ Now we want to be able to save our beer to our firebase database.
 
 2. Create a save function in the **AddBrew** layout to pass the user's input to our **BrewService**
 
+3. Make sure all of the view's contain the latest firebase data after saving
+ - By default Ionic will cache a view's controller.
+   + This is a good thing, but for our scenario we want to make sure we update our current view with the latest brews, especially if we just added one
+ - We can do this by adding a watch on a lifecycle event of the view
+   ```
+   $scope.$on('$ionicView.beforeEnter', activate);
+   ```
+ - We simply call *activate* again, which triggers a data fetch from our **BrewService**
     
  
         
