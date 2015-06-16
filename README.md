@@ -441,6 +441,10 @@ We need a way to add an image to our newly entered brew. We can make an image pi
     + While I prefer not to force the user to crop the image, I think square images will make for a more uniform UX
   - We will show some confirmation popups to the user before they remove or change an image.
   - Then simply add the ImagePicker to the **AddBrew** Layout.
+
+4. Modify the **Image Picker** to accept a brew object as an isolate scope
+  - By passing in the brew object from our **AddBrew** layout's scope, we can attach the selected image to the brew object.
+  - We will also modify our Addbrew to properly pass the brew object, and add some ng-model attributes to our inputs so that they are two-way bound to our new brew object.
   
 
     

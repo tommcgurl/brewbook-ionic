@@ -7,6 +7,9 @@
     var directive = {
       templateUrl: 'directives/imagePicker/imagePicker.html',
       restrict: 'E',
+      scope: {
+        brew: '='
+      },
       controller: ImageController,
       controllerAs: 'ip' //imagePicker
 
@@ -21,12 +24,12 @@
     ip.getPic = getPic;
     ip.editPic = editPic;
     ip.removePic = removePic;
-    ip.imageURI = '';
+    $scope.brew.image = '';
 
     function getPic() {
       ImageService.getPic()
         .then(function(imageURI) {
-          ip.imageURI = imageURI;
+          $scope.brew.image = imageURI;
         });
     }
 
@@ -40,7 +43,7 @@
           text: '<b>Remove</b>',
           type: 'button-assertive',
           onTap: function() {
-            ip.imageURI = ''
+            $scope.brew.image = ''
           }
         }]
       });

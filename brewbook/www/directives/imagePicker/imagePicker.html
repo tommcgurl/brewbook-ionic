@@ -1,9 +1,9 @@
-<div ng-if="!ip.imageURI" class="image-picker card" ng-click="ip.getPic()">
+<div ng-if="!brew.image" class="image-picker card" ng-click="ip.getPic()">
   <span class="ion-plus"></span>
   <span class="ion-camera"></span>
 </div>
-<div ng-if="ip.imageURI" class="image-container" ng-click="ip.editPic()">
-    <img ng-src="{{ip.imageURI}}">
+<div ng-if="brew.image" class="image-container" ng-click="ip.editPic()">
+    <img ng-src="{{brew.image}}">
     <span ng-click="ip.removePic()" class="badge badge-dark"><span class="ion-close-round"></span></span>
 </div>
 

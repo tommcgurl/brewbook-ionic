@@ -3,7 +3,7 @@
         Add Brew
     </ion-nav-title>
     <ion-nav-buttons side="primary">
-        <button class="button button-clear button-assertive" ng-click="vm.close()">
+        <button class="button button-clear button-default" ng-click="vm.close()">
             Close
         </button>
     </ion-nav-buttons>
@@ -13,7 +13,7 @@
                 <div class="list">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">Brew Name</span>
-                        <input type="text" placeholder="Brew Name">
+                        <input ng-model="vm.brew.name" type="text" placeholder="Brew Name">
                     </label>
                     <label class="item item-input item-floating-label">
                         <span class="input-label">Brewery</span>
@@ -35,12 +35,12 @@
                     </div>
                     <label class="item item-input item-floating-label">
                         <span class="input-label">Description</span>
-                        <textarea type="text" placeholder="Description"></textarea>
+                        <textarea ng-model="vm.brew.description" type="text" placeholder="Description"></textarea>
                     </label>
                 </div>
-                <bb-image-picker></bb-image-picker>
+              <bb-image-picker brew="vm.brew"></bb-image-picker>
                 <div class="padding">
-                    <button class="button button-block button-positive">Save Brew</button>
+                    <button ng-click="vm.save()" class="button button-block button-positive">Save Brew</button>
                 </div>
             </ion-content>
         </ion-side-menu-content>
