@@ -7711,8 +7711,17 @@ span.input-label.has-input {
 .item-input input[readonly] {
   background-color: #ffffff; }
 
-.side-select ion-scroll {
-  height: 85%; }
+.side-select {
+  background-color: #1D949F; }
+  .side-select hr {
+    width: 80%; }
+  .side-select ion-scroll {
+    height: 85%; }
+  .side-select ion-item {
+    border-top: none;
+    border-bottom: none;
+    background-color: #1D949F;
+    color: white; }
 
 .option-list ion-item {
   border: none; }
@@ -7744,3 +7753,20 @@ span.input-label.has-input {
     position: absolute;
     right: 33px;
     top: -10px; }
+
+ion-header-bar.bar-gradient.bar-header, .tab-nav.tabs {
+  background-color: #1D949F;
+  /* W3C */
+  color: white;
+  border: none; }
+  ion-header-bar.bar-gradient.bar-header button, ion-header-bar.bar-gradient.bar-header .buttons.button-right, .tab-nav.tabs button, .tab-nav.tabs .buttons.button-right {
+    color: white; }
+
+.tab-nav.tabs {
+  box-shadow: 0px 1px 7px #333333; }
+  .tab-nav.tabs a.tab-item.tab-item-active {
+    color: white;
+    border-width: 0px 0px 4px 0px !important;
+    border-color: #105157; }
+  .tab-nav.tabs a.tab-item.tab-item {
+    color: white; }

@@ -1,5 +1,17 @@
-.side-select ion-scroll {
-    height: 85%;
+.side-select {
+    background-color: #1D949F;
+    hr {
+      width: 80%;
+    }
+    ion-scroll {
+        height: 85%;
+    }
+    ion-item {
+        border-top: none;
+        border-bottom: none;
+        background-color: #1D949F;
+        color: white;
+    }
 }
 
 .option-list ion-item {
