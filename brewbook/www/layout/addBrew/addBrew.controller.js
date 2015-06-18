@@ -16,8 +16,14 @@
     vm.styles;
     vm.onSelectStyle = onSelectStyle;
     vm.onSelectBrewery = onSelectBrewery;
+    vm.setReadonly = setReadonly
     vm.save = save;
+    vm.styleReadonly = true;
+    vm.breweryReadonly = true;
     vm.brew = {};
+
+    var styleInput,
+      breweryInput;
 
     activate();
 
@@ -30,6 +36,8 @@
       BrewService.getBreweryList()
         .then(function(data) {
           vm.breweries = data;
+          // add the 'other' option to the list
+          vm.breweries.push('Other');
         });
     }
 
@@ -41,27 +49,55 @@
       $ionicHistory.goBack();
     }
 
-    function toggleRight() {
+    function toggleRight(e) {
+      breweryInput = breweryInput || e.currentTarget;
       $ionicSideMenuDelegate.toggleRight();
     }
 
-    function toggleLeft() {
+    function toggleLeft(e) {
+      styleInput = styleInput || e.currentTarget;
       $ionicSideMenuDelegate.toggleLeft();
     }
 
     function onSelectStyle(style) {
+      if (style === 'Other') {
+        // Focus in on the input field after the menu has closed
+        setTimeout(function() {
+          vm.styleReadonly = false;
+          styleInput.focus();
+          styleInput.select();
+        }, 0);
+      }
+
       vm.brew.style = style
       toggleLeft();
+
     }
 
     function onSelectBrewery(brewery) {
+      if (brewery === 'Other') {
+        setTimeout(function() {
+          vm.breweryReadonly = false;
+          breweryInput.focus();
+          breweryInput.select();
+        }, 0);
+      }
       vm.brew.brewery = brewery;
       toggleRight();
     }
+
     function save() {
       BrewService.addBrew(vm.brew);
       // Now close the add brew view
       close();
     }
-  };
+
+    function setReadonly(e) {
+      if (e.target.placeholder === 'Style') {
+        vm.styleReadonly = true;
+      } else {
+        vm.breweryReadonly = true;
+      }
+    }
+  }
 })();

@@ -465,6 +465,13 @@ Now we want to be able to save our beer to our firebase database.
    $scope.$on('$ionicView.beforeEnter', activate);
    ```
  - We simply call *activate* again, which triggers a data fetch from our **BrewService**
+
+#### Optional Style and Brewery
+We should allow the user to enter their own style, as well as enter new breweries when cataloging a beer. We will add an *Other* option to both of the select menus. When *Other* is selected, the input field focuses and allows for user input.
+
+1. Handle user selection of the *Other* select option.
+  - If the user selects *Other* we can programatically focus in on that input field and allow them to edit it.
+  - We will have to makesure we set it's readonly attributes properly so that the user can edit, then when they are done, we set it back to readonly.
     
  
         
