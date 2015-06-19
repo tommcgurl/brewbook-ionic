@@ -64,22 +64,23 @@
         // Focus in on the input field after the menu has closed
         setTimeout(function() {
           vm.styleReadonly = false;
-          styleInput.focus();
           styleInput.select();
+          styleInput.focus();
+          _openKeyboard();
         }, 0);
       }
 
       vm.brew.style = style
       toggleLeft();
-
     }
 
     function onSelectBrewery(brewery) {
       if (brewery === 'Other') {
         setTimeout(function() {
           vm.breweryReadonly = false;
-          breweryInput.focus();
           breweryInput.select();
+          breweryInput.focus();
+          _openKeyboard();
         }, 0);
       }
       vm.brew.brewery = brewery;
@@ -97,6 +98,14 @@
         vm.styleReadonly = true;
       } else {
         vm.breweryReadonly = true;
+      }
+    }
+
+    function _openKeyboard() {
+      try {
+        cordova.plugins.keyboard.show();
+      } catch(e) {
+        console.log('Not running via cordova');
       }
     }
   }

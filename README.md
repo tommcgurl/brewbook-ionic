@@ -472,6 +472,17 @@ We should allow the user to enter their own style, as well as enter new brewerie
 1. Handle user selection of the *Other* select option.
   - If the user selects *Other* we can programatically focus in on that input field and allow them to edit it.
   - We will have to makesure we set it's readonly attributes properly so that the user can edit, then when they are done, we set it back to readonly.
+
+2. Make keyboard popup when *Other* is selected
+  - To provide a better user experience we can add the [cordova ionic keyboard plugin2](https://github.com/driftyco/ionic-plugin-keyboard)
+  - This plugin will allow us to open the native keyboard when the input field is focused.
+  - Simply run
+    ```
+    cordova plugin add com.ionic.keyboard
+    ```
+    in the terminal to install it.
+  - We then make a function called **_openKeyboard** that envokes the show function on the cordova keyboard plugin.
+    + It is wrapped in a try catch since the web app doesn't have access to cordova from the browser.
     
  
         
