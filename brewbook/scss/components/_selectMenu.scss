@@ -1,7 +1,7 @@
 .side-select {
     background-color: #1D949F;
     hr {
-      width: 80%;
+        width: 80%;
     }
     ion-scroll {
         height: 85%;
@@ -11,6 +11,9 @@
         border-bottom: none;
         background-color: #1D949F;
         color: white;
+        &:last-child {
+            margin-bottom: 80px;
+        }
     }
 }
 

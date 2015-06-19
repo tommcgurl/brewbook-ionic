@@ -7722,6 +7722,8 @@ span.input-label.has-input {
     border-bottom: none;
     background-color: #1D949F;
     color: white; }
+    .side-select ion-item:last-child {
+      margin-bottom: 80px; }
 
 .option-list ion-item {
   border: none; }
