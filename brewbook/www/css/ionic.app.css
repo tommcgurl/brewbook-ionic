@@ -7775,3 +7775,9 @@ ion-header-bar.bar-gradient.bar-header, .tab-nav.tabs {
 
 .card {
   margin: 20px 20px; }
+  .card.list .item h2 {
+    border-bottom: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #aaaaaa;
+    padding-bottom: 10px;
+    font-size: 15pt; }
