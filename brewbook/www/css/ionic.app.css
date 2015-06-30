@@ -7772,3 +7772,6 @@ ion-header-bar.bar-gradient.bar-header, .tab-nav.tabs {
     border-color: #105157; }
   .tab-nav.tabs a.tab-item.tab-item {
     color: white; }
+
+.card {
+  margin: 20px 20px; }
