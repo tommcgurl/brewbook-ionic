@@ -103,8 +103,8 @@
 
     function _openKeyboard() {
       try {
-        cordova.plugins.keyboard.show();
-      } catch(e) {
+        cordova.plugins.Keyboard.show();
+      } catch (e) {
         console.log('Not running via cordova');
       }
     }

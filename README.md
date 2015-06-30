@@ -483,6 +483,12 @@ We should allow the user to enter their own style, as well as enter new brewerie
     in the terminal to install it.
   - We then make a function called **_openKeyboard** that envokes the show function on the cordova keyboard plugin.
     + It is wrapped in a try catch since the web app doesn't have access to cordova from the browser.
+
+#### From
+For now our location will just be a string representing where the brew is brewed, but later we can opt in for a location API.
+
+1. We simply add another input and map it to our brew object with ng-model
+  - In this case *vm.brew.from*
     
  
         

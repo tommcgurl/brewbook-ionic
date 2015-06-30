@@ -20,6 +20,10 @@
                         <input ng-model="vm.brew.brewery" ng-click="vm.toggleRight($event)" ng-blur="vm.setReadonly($event)" type="text" placeholder="Brewery" ng-readonly="vm.breweryReadonly">
                     </label>
                     <label class="item item-input item-floating-label">
+                        <span class="input-label">From</span>
+                        <input ng-model="vm.brew.from" type="text" placeholder="Location">
+                    </label>
+                    <label class="item item-input item-floating-label">
                         <span class="input-label">Style</span>
                         <input ng-model="vm.brew.style" ng-click="vm.toggleLeft($event)" ng-blur="vm.setReadonly($event)" type="text" placeholder="Style" ng-readonly="vm.styleReadonly">
                     </label>
