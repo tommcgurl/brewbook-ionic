@@ -490,8 +490,20 @@ For now our location will just be a string representing where the brew is brewed
 1. We simply add another input and map it to our brew object with ng-model
   - In this case *vm.brew.from*
     
- 
-        
+### Optimization through One-time Binding 
+Okay so we have done a good amount so far but there are more features to implement. Now that we have a form (AddBrew) we can see how beneficial Angular's **Two-way Data Binding** can be. The **ng-model** directive makes it super easy to leverage two-way binding with froms to bind our inputs to the actual data object in our controller.
+
+Two-way binding is very powerful, but can sometimes be overkill and overused. While it works great for froms, it isn't always necessary when simply templating out some data onto a page.
+
+Two-way bindings create **watchers** these watchers are dirty checked during Angular's [**$digest loop**](https://www.ng-book.com/p/The-Digest-Loop-and-apply/). The more watchers, the more work that is done during this phase diffing to see what evaluations have changed. By using One-time binding we can avoid creating too many watchers.
+
+In this section we will look at some of our templates and try to leverage One-time binding.
+
+One important thing to note about One-time binding is that the binding is active until the value becomes defined. So if you template something like
+```
+vm.brew.name
+```
+Then the watcher would be removed once vm.brew.name is defined. This allows us to template in data when it's available.        
 
 
 
