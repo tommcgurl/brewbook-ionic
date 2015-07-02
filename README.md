@@ -505,6 +505,16 @@ vm.brew.name
 ```
 Then the watcher would be removed once vm.brew.name is defined. This allows us to template in data when it's available.        
 
+- Brewlist directive
+  - According to the ionic documentation, since our BrewList directive uses ionic's [**collection-repeat directive**](http://ionicframework.com/docs/api/directive/collectionRepeat/) we cannot use One-time binding.
+
+1) Add One-time binding to the BrewDetail
+  - This is a great place to apply One-time binding since we are just templating the brew details onto the page.
+  - We simply prefix our bindings with **_::_** like below
+
+  ```javascript
+  {{::vm.brew.name}}
+  ```
 
 
 

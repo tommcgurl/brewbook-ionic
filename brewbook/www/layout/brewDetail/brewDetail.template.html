@@ -1,32 +1,32 @@
 <ion-view>
     <ion-nav-title>
-        {{vm.brew.name}}
+        {{::vm.brew.name}}
     </ion-nav-title>
-    <ion-spinner ng-show="!vm.brew" class="col"></ion-spinner>
-    <ion-content ng-show="vm.brew">
+    <ion-spinner ng-hide="::vm.brew" class="col"></ion-spinner>
+    <ion-content ng-show="::vm.brew">
         <div class="list card">
             <div class="item">
-                <h2>{{vm.brew.name}}</h2>
+                <h2>{{::vm.brew.name}}</h2>
                 <div class="row no-pad">
-                    <p class="col left-align">{{vm.brew.brewery}}</p>
-                    <p class="col right-align">{{vm.brew.from}}</p>
+                    <p class="col left-align">{{::vm.brew.brewery}}</p>
+                    <p class="col right-align">{{::vm.brew.from}}</p>
                 </div>
             </div>
             <div class="item item-image">
-                <img ng-src="{{vm.brew.image}}">
+                <img ng-src="{{::vm.brew.image}}">
             </div>
         </div>
         <div class="list card">
             <div class="item item-body">
                 <div>
-                    <h3 class="label-heading">STYLE </h3> {{vm.brew.style}}
+                    <h3 class="label-heading">STYLE </h3> {{::vm.brew.style}}
                 </div>
                 <div class="row">
-                    <div ng-if="vm.brew.abv"class="col col-50">
-                        <h3 class="label-heading">ABV </h3> {{vm.brew.abv}}
+                    <div ng-if="::vm.brew.abv"class="col col-50">
+                        <h3 class="label-heading">ABV </h3> {{::vm.brew.abv}}
                     </div>
-                    <div ng-if="vm.brew.ibu" class="col col-50">
-                        <h3 class="label-heading">IBU </h3>{{vm.brew.ibu}}
+                    <div ng-if="::vm.brew.ibu" class="col col-50">
+                        <h3 class="label-heading">IBU </h3>{{::vm.brew.ibu}}
                     </div>
                 </div>
         </div>
@@ -35,7 +35,7 @@
             <div class="item item-body">
                 <h3>DESCRIPTION </h3>
                 <hr>
-                <p>{{vm.brew.description}}</p>
+                <p>{{::vm.brew.description}}</p>
             </div>
         </div>
     </ion-content>

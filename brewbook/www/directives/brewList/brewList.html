@@ -1,6 +1,6 @@
 <ion-list ng-if="brews">
   <ion-item
-    class="item-remove-animate item-avatar item-icon-right" collection-repeat="brew in brews"
+    class="item-remove-animate item-avatar item-icon-right" collection-repeat="brew in brews track by $index"
     type="item-text-wrap"
     ng-href="#/tab/{{tab}}/{{brew.brewery | key}}/{{brew.name}}">
     <img ng-src="{{brew.image}}">
