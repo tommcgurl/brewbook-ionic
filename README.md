@@ -490,7 +490,7 @@ For now our location will just be a string representing where the brew is brewed
 1. We simply add another input and map it to our brew object with ng-model
   - In this case *vm.brew.from*
     
-### Optimization through One-time Binding 
+#### Optimization through One-time Binding 
 Okay so we have done a good amount so far but there are more features to implement. Now that we have a form (AddBrew) we can see how beneficial Angular's **Two-way Data Binding** can be. The **ng-model** directive makes it super easy to leverage two-way binding with froms to bind our inputs to the actual data object in our controller.
 
 Two-way binding is very powerful, but can sometimes be overkill and overused. While it works great for froms, it isn't always necessary when simply templating out some data onto a page.
@@ -515,6 +515,12 @@ Then the watcher would be removed once vm.brew.name is defined. This allows us t
   ```javascript
   {{::vm.brew.name}}
   ```
+
+### Styles Tab
+
+1) Add a **_Styles_** tab for brewing brews by style.
+  - We will add a tab to the tabs template. For now I'm just using the wine glass icon until I find something better.
+  - We simple add a new *ion-tab* to the *tabs.template.html* file
 
 
 
