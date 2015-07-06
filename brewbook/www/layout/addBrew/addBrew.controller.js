@@ -29,7 +29,7 @@
 
     function activate() {
       getBreweries();
-      getStyles();
+      getStyleOptions();
     }
 
     function getBreweries() {
@@ -41,8 +41,8 @@
         });
     }
 
-    function getStyles() {
-      vm.styles = StyleService.getStyles()
+    function getStyleOptions() {
+      vm.styles = StyleService.getStyleOptions()
     }
 
     function close() {
