@@ -14,7 +14,7 @@
     // The services 'public' definition
     var styleService = {
       getStyleOptions: getStyleOptions,
-      getStyles: _getStyles,
+      getStyleList: getStyleList,
       getBrewsByStyle: getBrewsByStyle
     };
 
@@ -70,6 +70,27 @@
       });
 
       return deffered.promise;
+    }
+
+    function getStyleList() {
+      // Prepare a promise for the caller
+      var deffered = $q.defer();
+
+      _getStyles().then(function(brewObject) {
+        deffered.resolve(_getAllStyles(brewObject));
+      });
+
+      // return promise to caller
+      return deffered.promise;
+    }
+
+    function _getAllStyles(brewObject) {
+      var allStyles = [];
+      brewObject.forEach(function(style) {
+        allStyles.push(style[0].style);
+      });
+
+      return allStyles;
     }
   }
 })();

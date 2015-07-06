@@ -1,0 +1,18 @@
+<ion-view view-title="Styles">
+    <ion-nav-buttons side="secondary">
+        <button class="button button-clear button-default" ui-sref="addBrew">
+            Add
+        </button>
+    </ion-nav-buttons>
+    <ion-spinner class="col" ng-hide="vm.styles"></ion-spinner>
+    <ion-content>
+        <ion-list ng-if="vm.styles">
+            <ion-item class="item-remove-animate item-icon-right"
+              collection-repeat="style in vm.styles"
+              type="item-text-wrap"
+              ng-href="#/tab/styles/{{style | key}}">
+                <h2>{{style}}</h2>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

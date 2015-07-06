@@ -540,3 +540,9 @@ Then the watcher would be removed once vm.brew.name is defined. This allows us t
     + One fore pulling down the style object.
     + One for getting the array of brews for a particular style.
 
+4) Create a template and controller for the style list.
+  - The style list will need a list of the styles in our style object. We can add this functionality to our StyleService
+    + It will repeat over this list
+  - Our controller wil have functionality to get the style list from our StyleService
+  - We will also add a route to app.js for our new view
+
