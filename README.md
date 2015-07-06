@@ -522,5 +522,17 @@ Then the watcher would be removed once vm.brew.name is defined. This allows us t
   - We will add a tab to the tabs template. For now I'm just using the wine glass icon until I find something better.
   - We simple add a new *ion-tab* to the *tabs.template.html* file
 
+2) Add a Styles Object to our firebase database.
+  - We will be using some data denormalization here
+  - We are going to create another json to add to our firebase  database
+  - This object will be similar to our exisitng *brewObject* but it will have styles as properties rather than breweries.
+  - We are duplicating data here which is okay with NoSQL databases, and is favorable when seaking fast denormalized data queries.
+  - This does however mean that we will need to make sure we persist brews between the two objects.
+  - First login to firebase and add a propety to the database by clicking the **"+"** button next to the database name
+    
+    ![add style](./READMEImages/addStyleObject.png?raw=true )
+
+  - Now create a new property named 'styles' with some dummy string value like 'hello' for now.
+  - Then click the styles property, and then once inside, select import JSON as we did before.
 
 
