@@ -535,4 +535,8 @@ Then the watcher would be removed once vm.brew.name is defined. This allows us t
   - Now create a new property named 'styles' with some dummy string value like 'hello' for now.
   - Then click the styles property, and then once inside, select import JSON as we did before.
 
+3) Add functionality to our style service for pulling data from firebase.
+  - We will add two major functions.
+    + One fore pulling down the style object.
+    + One for getting the array of brews for a particular style.
 

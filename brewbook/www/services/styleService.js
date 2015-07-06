@@ -3,16 +3,19 @@
   angular.module('starter.services')
     .factory('StyleService', StyleService);
 
+  StyleService.$inject = ['$q', '$firebaseObject'];
+
   // We may eventually move this off to our database
-  function StyleService() {
-    var _url = 'https://brewbook-ionic.firebaseio.com/brews',
+  function StyleService($q, $firebaseObject) {
+    var _url = 'https://brewbook-ionic.firebaseio.com/styles',
       _promise,
-      _allBrews,
-      _allBreweries;
+      _firebaseObject;
 
     // The services 'public' definition
     var styleService = {
-      getStyles: getStyles
+      getStyleOptions: getStyleOptions,
+      getStyles: _getStyles,
+      getBrewsByStyle: getBrewsByStyle
     };
 
     return styleService;
@@ -20,7 +23,7 @@
     /**
      * Returns and array of styles
      */
-    function getStyles() {
+    function getStyleOptions() {
       return ['APA', 'Ale', 'Altbier',
         'Amber Ale', 'Belgian Dark Ale',
         'Belgian IPA',
@@ -37,5 +40,36 @@
       ];
     }
 
+
+    /**
+     * Get the brews from firebase and return a promise
+     */
+    function _getStyles() {
+      // Check and see if we already have a promise, if so just return that
+      if (_promise) {
+        return _promise;
+      }
+
+      var ref = new Firebase(_url);
+
+      _firebaseObject = $firebaseObject(ref);
+
+      // Return a promise
+      _promise = _firebaseObject.$loaded()
+        .then(function(data) {
+          return data;
+        });
+      return _promise;
+    }
+
+    function getBrewsByStyle(styleId) {
+      var deffered = $q.defer();
+
+      _getStyles().then(function(styleObject) {
+        deffered.resolve(styleObject[styleId]);
+      });
+
+      return deffered.promise;
+    }
   }
 })();
