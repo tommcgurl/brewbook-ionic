@@ -517,19 +517,10 @@ Then the watcher would be removed once vm.brew.name is defined. This allows us t
   ```
 
 ### Styles Tab
-Now we can add a tab that will display our beers by style.
 
 1) Add a **_Styles_** tab for brewing brews by style.
   - We will add a tab to the tabs template. For now I'm just using the wine glass icon until I find something better.
   - We simple add a new *ion-tab* to the *tabs.template.html* file
-
-2) Contruct a Style object in out *BrewService*
-  - We need to create an array of all of the poosible styles.
-  - We will also need to show all the brews of that style once we click one.
-  - For this I've decided to create a *styles object* similar to our brew object.
-  - Each key will be a style and the value will be an array of brews of that style.
-  - Later on we may want to denormalize our data by storing an object like this in our database. It would cause us to have duplicate data, but for NoSQL denormalization is normal and can lead to some speedy queries.
-  - We can create a function in our BrewService to contruct this object by parsing our brewObject from Firebase.
 
 
 

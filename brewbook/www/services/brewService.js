@@ -1,5 +1,5 @@
 (function() {
-  'use strict';
+  'use strict'
   angular.module('starter.services')
     .factory('BrewService', BrewService);
 
@@ -8,13 +8,13 @@
   function BrewService($q, $firebaseObject) {
     var _url = 'https://brewbook-ionic.firebaseio.com/brews',
       _promise,
-      _firebaseObject;
+      _firebaseObject,
+      _allBreweries;
 
     // The services 'public' definition
     var brewService = {
       getBrewList: getBrewList,
       getBreweryList: getBreweryList,
-      getStyleList: getStyleList,
       getBrewsByBrewery: getBrewsByBrewery,
       getBrewDetail: getBrewDetail,
       addBrew: _addBrew
@@ -53,16 +53,6 @@
       return deffered.promise;
     }
 
-    function getStyleList() {
-      var deffered = $q.defer();
-
-      _getBrews().then(function(brewObject) {
-        deffered.resolve(_getStyleBrewObject(brewObject));
-      });
-
-      return deffered.promise;
-    }
-
     function getBrewsByBrewery(breweryID) {
       var deffered = $q.defer();
 
@@ -77,8 +67,8 @@
       var deffered = $q.defer();
 
       _getBrews().then(function(brewObject) {
-        deffered.resolve(_getBrewDetail(brewObject, breweryID, brewName));
-      });
+        deffered.resolve(_getBrewDetail(brewObject, breweryID, brewName))
+      })
 
       return deffered.promise;
     }
@@ -107,7 +97,11 @@
     function _addBrew(brew) {
       var breweryKey = brew.brewery.replace(/\W/g, '').toLowerCase();
 
-      _firebaseObject = _pushBrewOnProperty(_firebaseObject, brew, breweryKey);
+      if(_firebaseObject[breweryKey]) {
+        _firebaseObject[breweryKey].push(brew);
+      } else {
+        _firebaseObject[breweryKey] = [brew];
+      }
 
       _firebaseObject.$save().then(function(ref) {
         ref.key() === _firebaseObject.$id; // true
@@ -138,25 +132,6 @@
       });
 
       return allBreweries;
-    }
-
-    function _getStyleBrewObject(brewObject) {
-      var brews = _getAllBrews(brewObject),
-        result = {};
-      brews.forEach(function(brew) {
-        var styleKey = brew.style.replace(/\W/g, '').toLowerCase();
-        result = _pushBrewOnProperty(result, brew, styleKey);
-      });
-      return result;
-    }
-
-    function _pushBrewOnProperty(obj, brew, property) {
-      if (obj[property]) {
-        obj[property].push(brew);
-      } else {
-        obj[property] = [brew];
-      }
-      return obj;
     }
 
     function _getBrewDetail(brewObject, breweryID, brewName) {
