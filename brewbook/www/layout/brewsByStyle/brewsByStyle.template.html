@@ -1,0 +1,14 @@
+<ion-view>
+    <ion-nav-title>
+        {{vm.style}}
+    </ion-nav-title>
+    <ion-nav-buttons side="secondary">
+        <button class="button button-clear button-default" ui-sref="addBrew">
+            Add
+        </button>
+    </ion-nav-buttons>
+    <ion-spinner class="col" ng-hide="vm.brews"></ion-spinner>
+    <ion-content>
+        <bb-brew-list brews="vm.brews" tab="styles"></bb-brew-list>
+    </ion-content>
+</ion-view>

@@ -546,3 +546,7 @@ Then the watcher would be removed once vm.brew.name is defined. This allows us t
   - Our controller wil have functionality to get the style list from our StyleService
   - We will also add a route to app.js for our new view
 
+5) Add a **BrewsByStyle** view
+  - Create a new view that uses our *BrewList* directive to display all brews for a selected style.
+  - Create the template and controller (similar to our previous brew list controllers)
+  - Create the route in app.js

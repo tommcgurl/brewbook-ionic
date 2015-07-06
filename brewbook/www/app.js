@@ -102,6 +102,15 @@ angular.module('starter', ['ionic', 'firebase', 'ngCordova', 'starter.controller
         controller: 'Styles as vm'
       }
     }
+  })
+  .state('tab.brews-by-style', {
+    url: '/styles/:style',
+    views: {
+      'tab-styles' : {
+        templateUrl: 'layout/brewsByStyle/brewsByStyle.template.html',
+        controller: 'BrewsByStyle as vm'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
