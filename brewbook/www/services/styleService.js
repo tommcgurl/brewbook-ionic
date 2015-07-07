@@ -15,7 +15,8 @@
     var styleService = {
       getStyleOptions: getStyleOptions,
       getStyleList: getStyleList,
-      getBrewsByStyle: getBrewsByStyle
+      getBrewsByStyle: getBrewsByStyle,
+      _addBrew: _addBrew
     };
 
     return styleService;
@@ -60,6 +61,34 @@
           return data;
         });
       return _promise;
+    }
+
+    function _addBrew(brew) {
+      var styleKey = brew.style.replace(/\W/g, '').toLowerCase(),
+        deffered = $q.defer();
+
+      _getStyles().then(function(brewObject) {
+        _addBrewToStylesObject(brew, deffered);
+      });
+
+      return deffered;
+    }
+
+    function _addBrewToStylesObject(brew, deffered) {
+      var styleKey = brew.style.replace(/\W/g, '').toLowerCase();
+
+      if (_firebaseObject[styleKey]) {
+        _firebaseObject[styleKey].push(brew);
+      } else {
+        _firebaseObject[styleKey] = [brew];
+      }
+
+      _firebaseObject.$save().then(function(ref) {
+        ref.key() === _firebaseObject.$id; // true
+        deffered.resolve();
+      }, function(error) {
+        console.log("Error:", error);
+      });
     }
 
     function getBrewsByStyle(styleId) {

@@ -553,3 +553,13 @@ Then the watcher would be removed once vm.brew.name is defined. This allows us t
 
 6) Add a **Brew Detail** view from the styles tab.
   - We simple create a new route in app.js and point to our already created Brew Detail controller and template.
+
+### Add Brew Transaction
+
+Now that we have denormalized the data on our firebase database, we have to make sure all brews that are added are persisted by both objects
+
+In other words, if we add to one, we must add to the other.
+
+1) Add a function to StyleService that adds a brew to the Style Object.
+  - First check to make sure we fetch the Style object.
+  - Then add to the style object and return a promise.
