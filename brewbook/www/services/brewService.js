@@ -3,9 +3,9 @@
   angular.module('starter.services')
     .factory('BrewService', BrewService);
 
-  BrewService.$inject = ['$q', '$firebaseObject'];
+  BrewService.$inject = ['$q', '$firebaseObject', 'StyleService'];
 
-  function BrewService($q, $firebaseObject) {
+  function BrewService($q, $firebaseObject, StyleService) {
     var _url = 'https://brewbook-ionic.firebaseio.com/brews',
       _promise,
       _firebaseObject,
@@ -95,9 +95,15 @@
     }
 
     function _addBrew(brew) {
-      var breweryKey = brew.brewery.replace(/\W/g, '').toLowerCase();
+      var breweryKey = brew.brewery.replace(/\W/g, '').toLowerCase(),
+        savedToBrewObject = $q.defer(),
+        savedToStyleObject = $q.defer(),
+        promises = [
+          savedToBrewObject,
+          savedToStyleObject
+        ];
 
-      if(_firebaseObject[breweryKey]) {
+      if (_firebaseObject[breweryKey]) {
         _firebaseObject[breweryKey].push(brew);
       } else {
         _firebaseObject[breweryKey] = [brew];
@@ -105,9 +111,13 @@
 
       _firebaseObject.$save().then(function(ref) {
         ref.key() === _firebaseObject.$id; // true
+        savedToBrewObject.resolve()
       }, function(error) {
         console.log("Error:", error);
       });
+
+      savedToStyleObject = StyleService._addBrew(brew);
+      return $q.all(promises)
     }
 
     /**
