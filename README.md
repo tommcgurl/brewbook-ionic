@@ -567,3 +567,11 @@ In other words, if we add to one, we must add to the other.
 2) Modify the BrewService to have it call the StyleService's add brew function.
   - We can leverage the [**$q.all**](https://docs.angularjs.org/api/ng/service/$q) function to ensure that both our adds go through.
   - We will return a promise so that anyone consuming this api can get notifications when it's done (even though we aren't currently using it).
+
+### Remove Brew
+
+We will want to be able to remove brews from our catalogue. 
+
+1) We will add some [**ion-option-button**](link) elements to our brewList directive.
+    - We will add a "remove" button and an "edit" button.
+
