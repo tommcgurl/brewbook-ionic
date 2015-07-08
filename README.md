@@ -573,5 +573,8 @@ In other words, if we add to one, we must add to the other.
 We will want to be able to remove brews from our catalogue. 
 
 1) We will add some [**ion-option-button**](link) elements to our brewList directive.
-    - We will add a "remove" button and an "edit" button.
+  - We will add a "remove" button and an "edit" button.
+
+2) Add controller to the *BrewList* directive
+  - We will add a controller to the directive to handle adding and removing brews.
 
