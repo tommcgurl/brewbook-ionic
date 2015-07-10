@@ -18,7 +18,6 @@
 
       BrewService.getBrewDetail(brewery, brew)
         .then(function(data) {
-          console.log(data);
           vm.brew = data;
         });
     }

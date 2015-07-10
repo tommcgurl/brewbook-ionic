@@ -14,7 +14,7 @@ I use [Genymotion](https://www.genymotion.com/#!/) to test on android as apposed
 
 
 ####The App
-The App containts the basic CRUD functionality with regards to beers. The user should be able to
+The App contains the basic CRUD functionality with regards to beers. The user should be able to
 
 - Log a beer into the app, which includes
     + A picture (either by taking a photo or picking one from your photo gallery)
