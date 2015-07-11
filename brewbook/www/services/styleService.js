@@ -16,7 +16,8 @@
       getStyleOptions: getStyleOptions,
       getStyleList: getStyleList,
       getBrewsByStyle: getBrewsByStyle,
-      _addBrew: _addBrew
+      _addBrew: _addBrew,
+      _removeBrew: _removeBrew
     };
 
     return styleService;
@@ -74,6 +75,17 @@
       return deffered;
     }
 
+    function _removeBrew(brew) {
+      var styleKey = brew.style.replace(/\W/g, '').toLowerCase(),
+        deffered = $q.defer();
+
+      _getStyles().then(function(brewObject) {
+        _removeBrewFromStylesObject(brew, deffered);
+      });
+
+      return deffered;
+    }
+
     function _addBrewToStylesObject(brew, deffered) {
       var styleKey = brew.style.replace(/\W/g, '').toLowerCase();
 
@@ -83,12 +95,29 @@
         _firebaseObject[styleKey] = [brew];
       }
 
+      _saveStylesObject(deffered);
+    }
+
+    function _removeBrewFromStylesObject(brew, deffered) {
+       var styleKey = brew.style.replace(/\W/g, '').toLowerCase();
+
+       _removeFromArray(_firebaseObject[styleKey], brew);
+
+       _saveStylesObject(deffered);
+    }
+
+    function _saveStylesObject(deffered) {
       _firebaseObject.$save().then(function(ref) {
         ref.key() === _firebaseObject.$id; // true
-        deffered.resolve();
+        deffered.resolve(_firebaseObject);
       }, function(error) {
         console.log("Error:", error);
       });
+    }
+
+    function _removeFromArray(array, brew) {
+      var brewIndex = array.indexOf(brew);
+      array.splice(brewIndex, 1);
     }
 
     function getBrewsByStyle(styleId) {
