@@ -17,7 +17,8 @@
       getBreweryList: getBreweryList,
       getBrewsByBrewery: getBrewsByBrewery,
       getBrewDetail: getBrewDetail,
-      addBrew: _addBrew
+      addBrew: _addBrew,
+      removeBrew: _removeBrew
     };
 
     return brewService;
@@ -109,15 +110,42 @@
         _firebaseObject[breweryKey] = [brew];
       }
 
+      _saveBrewObject(savedToBrewObject)
+      savedToStyleObject = StyleService._addBrew(brew);
+
+      return $q.all(promises)
+    }
+
+    function _removeBrew(brew) {
+      var breweryKey = brew.brewery.replace(/\W/g, '').toLowerCase(),
+        savedToBrewObject = $q.defer(),
+        savedToStyleObject = $q.defer(),
+        promises = [
+          savedToBrewObject.promise,
+          savedToStyleObject.promise
+        ];
+
+      _removeFromArray(_firebaseObject[breweryKey], brew);
+      _saveBrewObject(savedToBrewObject);
+
+      savedToStyleObject = StyleService._removeBrew(brew);
+
+      return $q.all(promises);
+
+    }
+
+    function _saveBrewObject(deffered) {
       _firebaseObject.$save().then(function(ref) {
         ref.key() === _firebaseObject.$id; // true
-        savedToBrewObject.resolve()
+        deffered.resolve(_firebaseObject);
       }, function(error) {
         console.log("Error:", error);
       });
+    }
 
-      savedToStyleObject = StyleService._addBrew(brew);
-      return $q.all(promises)
+    function _removeFromArray(array, brew) {
+      var brewIndex = array.indexOf(brew);
+      array.splice(brewIndex, 1);
     }
 
     /**

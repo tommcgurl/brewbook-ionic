@@ -578,3 +578,6 @@ We will want to be able to remove brews from our catalogue.
 2) Add controller to the *BrewList* directive
   - We will add a controller to the directive to handle adding and removing brews.
 
+3) Add a function to the *BrewService* to remove a brew from both the *Styles Object* and the *Brews Object*.
+    - Make sure to remove from both objects and wrap the promises in a *q.all()*.
+
