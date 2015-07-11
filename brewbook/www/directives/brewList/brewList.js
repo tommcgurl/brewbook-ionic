@@ -17,13 +17,14 @@
     return directive;
   }
 
-  BrewListController.$inject = ['$ionicPopup', 'BrewService'];
+  BrewListController.$inject = ['$scope', '$ionicPopup', '$ionicListDelegate', 'BrewService'];
 
-  function BrewListController($ionicPopup, BrewService) {
+  function BrewListController($scope, $ionicPopup, $ionicListDelegate, BrewService) {
     var bl = this;
     bl.removeBrew = removeBrew;
 
     function removeBrew(brew) {
+      $ionicListDelegate.closeOptionButtons();
       $ionicPopup.show({
         template: '<p>Are you sure you want to remove this brew?</p>',
         title: 'Remove Brew',
@@ -33,8 +34,12 @@
           text: '<b>Remove</b>',
           type: 'button-assertive',
           onTap: function() { // lol get it?
-            // BrewService.removeBrew(brew);
-            // Remove beer;
+            // Remove brew from current list
+            var brewIndex = $scope.brews.indexOf(brew);
+            $scope.brews.splice(brewIndex, 1)
+
+            BrewService.removeBrew(brew);
+
           }
         }]
       });

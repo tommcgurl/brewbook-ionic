@@ -583,3 +583,9 @@ We will want to be able to remove brews from our catalogue.
 
 4) Add function to the *StylesService* to remove a brew
   - We have to implement the function that the BrewService will call to remove a brew.
+
+5) Add a handler to our newly created *BrewList* to call our new *BrewService.removeBrew* function.
+  - We will also manually remove the brew from the BrewList directives scoped brews object, since it may not be directly bound to the firebase object
+  - For example, on the *AllBrews* view it is scoped to an array made from the firebase object rather than the object itself so updating firebase does not directly change the view.
+  - We will also have to add the [$ionicListDelegate](http://ionicframework.com/docs/api/service/$ionicListDelegate/) in order to close our **ion-option** buttons after an item is removed.
+
